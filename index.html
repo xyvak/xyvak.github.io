@@ -16,11 +16,9 @@
                 extend: {
                     fontFamily: { sans: ['Vazirmatn', 'sans-serif'] },
                     colors: {
-                        xyBlack: '#030303',
-                        xyDark: '#0a0a0c',
+                        xyBlack: '#050505',
                         xyYellow: '#FFD700',
                         xyRed: '#E63946',
-                        xySilver: '#e5e7eb',
                     }
                 }
             }
@@ -29,14 +27,21 @@
 
     <style>
         body {
-            background-color: #030303;
+            background-color: #050505;
             color: #e5e7eb;
-            /* پترن نویز بسیار ملایم برای خروج از سادگی مطلق */
-            background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-            background-size: 30px 30px;
+            overflow-x: hidden;
         }
 
-        /* افکت نقره‌ای براق فقط برای لوگو */
+        /* پس‌زمینه پارالکس جذاب (از نسخه اول) */
+        .parallax-bg {
+            background-image: linear-gradient(rgba(5, 5, 5, 0.85), rgba(5, 5, 5, 0.98)), url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop');
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        /* افکت نقره‌ای براق برای نام زیواک */
         .shiny-silver {
             background: linear-gradient(to right, #9ca3af 0%, #ffffff 50%, #9ca3af 100%);
             background-size: 200% auto;
@@ -49,121 +54,92 @@
             to { background-position: 200% center; }
         }
 
-        /* استایل منوی مدرن (Pill Menu) */
-        .nav-pill {
-            background: rgba(255, 255, 255, 0.03);
+        /* کارت‌های شیشه‌ای با افکت ردیابی موس */
+        .glass-lab-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-        }
-        .nav-link {
-            position: relative;
-            color: #9ca3af;
-            transition: color 0.3s ease;
-        }
-        .nav-link:hover { color: #ffffff; }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0; height: 2px;
-            bottom: -4px; right: 0;
-            background-color: #FFD700;
-            transition: width 0.3s ease;
-        }
-        .nav-link:hover::after { width: 100%; }
-
-        /* کارت‌های آزمایشگاهی با افکت ردیابی موس (Glow) */
-        .lab-card {
-            background-color: #0a0a0c;
-            border: 1px solid rgba(255, 255, 255, 0.08);
             position: relative;
             overflow: hidden;
-            transition: border-color 0.3s ease, transform 0.3s ease;
+            transition: all 0.4s ease;
         }
-        .lab-card:hover {
+        .glass-lab-card:hover {
             border-color: rgba(255, 215, 0, 0.3);
-            transform: translateY(-2px);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
         }
         
         /* هاله نوری زیر موس */
-        .lab-card::before {
+        .glass-lab-card::before {
             content: "";
             position: absolute;
             top: var(--y, 0);
             left: var(--x, 0);
             transform: translate(-50%, -50%);
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(255, 215, 0, 0.05) 0%, transparent 70%);
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.06) 0%, transparent 70%);
             opacity: 0;
             transition: opacity 0.3s ease;
             pointer-events: none;
             z-index: 0;
         }
-        .lab-card:hover::before { opacity: 1; }
+        .glass-lab-card:hover::before { opacity: 1; }
         
         .card-content { position: relative; z-index: 1; }
 
-        /* بج‌های وضعیت (Status Badges) */
+        /* بج‌های وضعیت */
         .badge {
             font-size: 0.7rem;
-            padding: 2px 8px;
+            padding: 4px 10px;
             border-radius: 12px;
             letter-spacing: 0.5px;
+            font-weight: bold;
         }
         .badge-live { background: rgba(230, 57, 70, 0.1); color: #E63946; border: 1px solid rgba(230, 57, 70, 0.2); }
         .badge-dev { background: rgba(255, 215, 0, 0.1); color: #FFD700; border: 1px solid rgba(255, 215, 0, 0.2); }
     </style>
 </head>
-<body class="antialiased selection:bg-xyYellow selection:text-xyBlack flex flex-col min-h-screen">
+<body class="parallax-bg antialiased selection:bg-xyYellow selection:text-xyBlack flex flex-col min-h-screen">
 
-    <!-- هدر مینیمال -->
-    <header class="w-full p-6 flex justify-center fixed top-0 z-50 pointer-events-none">
-        <nav class="nav-pill px-6 py-3 rounded-full flex items-center gap-8 pointer-events-auto shadow-2xl">
-            <a href="#" class="text-xl font-black shiny-silver tracking-widest ml-4">XYVAK</a>
-            <div class="hidden md:flex gap-6 text-sm font-medium">
-                <a href="#labs" class="nav-link">آزمایشگاه پروژه‌ها</a>
-                <a href="#about" class="nav-link">درباره ما</a>
-            </div>
-        </nav>
-    </header>
-
-    <!-- بخش معرفی (Hero) - واقع‌بینانه و تمیز -->
-    <main class="flex-grow pt-32 px-6 max-w-6xl mx-auto w-full">
-        <section class="py-20 md:py-32 max-w-3xl">
-            <h1 class="text-5xl md:text-7xl font-black mb-6 text-white tracking-tight">
-                زیواک
+    <!-- بخش معرفی (Hero) -->
+    <main class="flex-grow pt-24 md:pt-32 px-6 max-w-6xl mx-auto w-full">
+        <section class="mb-24 max-w-3xl">
+            <h1 class="text-6xl md:text-8xl font-black mb-6 shiny-silver tracking-tight pb-2">
+                زیـواک
             </h1>
-            <p class="text-xl md:text-2xl text-gray-400 font-light mb-6 leading-relaxed">
-                توسعه ابزارهای کاربردی و بررسی فناوری.
+            <p class="text-xl md:text-2xl text-xyYellow font-light mb-6 leading-relaxed">
+                آزمایشگاه توسعه ابزارهای مستقل
             </p>
-            <p class="text-gray-500 text-base md:text-lg leading-loose max-w-2xl">
-                زیواک یک بستر مستقل برای ساخت ابزارهای ساده‌ی اندرویدی، توسعه‌ی میکرو-تولزهای تحت وب و انتشار مقالات در حوزه هوش مصنوعی است. هدف ما ساخت ابزارهایی است که یک کار را انجام می‌دهند، اما آن را درست انجام می‌دهند.
+            <p class="text-gray-400 text-base md:text-lg leading-loose max-w-2xl">
+                تمرکز ما در زیواک، خلق ابزارهای کاربردی، بهینه‌سازی‌شده و مستقل است. بستری برای توسعه‌ی اپلیکیشن‌های اندروید، میکرو-تولزهای تحت وب و بررسی تحلیلی فناوری‌های روز؛ بدون پیچیدگی‌های اضافه و دقیقاً متناسب با نیاز کاربر.
             </p>
         </section>
 
-        <!-- بخش آزمایشگاه (Google Labs Style Bento Grid) -->
-        <section id="labs" class="pb-32">
-            <div class="flex items-center gap-4 mb-10">
-                <h2 class="text-2xl font-bold text-white">پروژه‌ها</h2>
-                <div class="h-[1px] flex-grow bg-white/10"></div>
+        <!-- بخش پروژه‌ها -->
+        <section class="pb-32">
+            <div class="flex items-center gap-4 mb-10 opacity-80">
+                <h2 class="text-xl font-bold text-white tracking-wide">پروژه‌های فعال</h2>
+                <div class="h-[1px] flex-grow bg-gradient-to-l from-white/20 to-transparent"></div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 
                 <!-- پروژه 1: اپلیکیشن اندروید -->
-                <div class="lab-card rounded-2xl p-8 flex flex-col h-full cursor-pointer group">
+                <div class="glass-lab-card rounded-2xl p-8 flex flex-col h-full cursor-pointer group">
                     <div class="card-content flex flex-col h-full">
                         <div class="flex justify-between items-start mb-6">
-                            <div class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-gray-300 group-hover:text-xyYellow transition-colors">
+                            <div class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-gray-300 group-hover:text-xyYellow transition-colors border border-white/10">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>
                             </div>
                             <span class="badge badge-live">منتشر شده</span>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-2">جعبه ابزار فرکانس</h3>
+                        <h3 class="text-xl font-bold text-white mb-3">جعبه ابزار فرکانس</h3>
                         <p class="text-gray-400 text-sm leading-relaxed mb-6 flex-grow">
                             اپلیکیشن آفلاین اندروید برای تولید امواج صوتی، تست اسپیکر و خروج آب از بلندگوی گوشی.
                         </p>
-                        <div class="text-xs text-gray-500 flex gap-3">
+                        <div class="text-xs text-gray-500 flex gap-3 font-medium">
                             <span>اندروید</span>
                             <span>•</span>
                             <span>کافه بازار / مایکت</span>
@@ -172,19 +148,19 @@
                 </div>
 
                 <!-- پروژه 2: مجله هوش مصنوعی -->
-                <div class="lab-card rounded-2xl p-8 flex flex-col h-full cursor-pointer group">
+                <div class="glass-lab-card rounded-2xl p-8 flex flex-col h-full cursor-pointer group">
                     <div class="card-content flex flex-col h-full">
                         <div class="flex justify-between items-start mb-6">
-                            <div class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-gray-300 group-hover:text-xyRed transition-colors">
+                            <div class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-gray-300 group-hover:text-xyRed transition-colors border border-white/10">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" /></svg>
                             </div>
                             <span class="badge badge-dev">در حال توسعه</span>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-2">مجله AI</h3>
+                        <h3 class="text-xl font-bold text-white mb-3">مجله فناوری و AI</h3>
                         <p class="text-gray-400 text-sm leading-relaxed mb-6 flex-grow">
-                            بررسی مدل‌های زبانی، مقایسه ابزارهای هوش مصنوعی و انتشار اخبار کاربردی بدون حاشیه.
+                            بررسی مدل‌های زبانی، مقایسه ابزارهای هوش مصنوعی و انتشار مقالات کاربردی بدون حاشیه.
                         </p>
-                        <div class="text-xs text-gray-500 flex gap-3">
+                        <div class="text-xs text-gray-500 flex gap-3 font-medium">
                             <span>محتوا</span>
                             <span>•</span>
                             <span>وبلاگ</span>
@@ -193,19 +169,19 @@
                 </div>
 
                 <!-- پروژه 3: ابزارهای تحت وب -->
-                <div class="lab-card rounded-2xl p-8 flex flex-col h-full cursor-pointer group">
+                <div class="glass-lab-card rounded-2xl p-8 flex flex-col h-full cursor-pointer group">
                     <div class="card-content flex flex-col h-full">
                         <div class="flex justify-between items-start mb-6">
-                            <div class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-gray-300 group-hover:text-white transition-colors">
+                            <div class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-gray-300 group-hover:text-white transition-colors border border-white/10">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" /></svg>
                             </div>
                             <span class="badge badge-dev">به زودی</span>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-2">میکرو تولز</h3>
+                        <h3 class="text-xl font-bold text-white mb-3">میکرو تولز</h3>
                         <p class="text-gray-400 text-sm leading-relaxed mb-6 flex-grow">
                             مجموعه‌ای از ابزارهای سبک تحت وب برای پردازش متن، محاسبات سریع و ابزارهای توسعه‌دهندگان.
                         </p>
-                        <div class="text-xs text-gray-500 flex gap-3">
+                        <div class="text-xs text-gray-500 flex gap-3 font-medium">
                             <span>وب</span>
                             <span>•</span>
                             <span>جاوااسکریپت</span>
@@ -218,15 +194,15 @@
     </main>
 
     <!-- فوتر مینیمال -->
-    <footer class="border-t border-white/5 py-8 text-center mt-auto">
-        <div class="text-gray-600 text-sm">
-            &copy; 2026 Xyvak. ابزارهایی برای استفاده روزمره.
+    <footer class="border-t border-white/10 bg-black/30 backdrop-blur-md py-8 text-center mt-auto">
+        <div class="text-gray-500 text-sm tracking-wide">
+            &copy; 2026 Xyvak Labs.
         </div>
     </footer>
 
     <!-- اسکریپت افکت ردیابی موس روی کارت‌ها -->
     <script>
-        document.querySelectorAll('.lab-card').forEach(card => {
+        document.querySelectorAll('.glass-lab-card').forEach(card => {
             card.addEventListener('mousemove', e => {
                 const rect = card.getBoundingClientRect();
                 const x = e.clientX - rect.left;
