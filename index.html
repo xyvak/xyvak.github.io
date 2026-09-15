@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>زیواک | آزمایشگاه ابزارهای مستقل</title>
+    <title>زیواک | استودیوی توسعه ابزارهای مستقل</title>
     
     <!-- فونت وزیرمتن -->
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.0.0/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
@@ -33,16 +33,16 @@
             scroll-behavior: smooth;
         }
 
-        /* پس‌زمینه پارالکس نسخه اول (با هاله تاریک‌تر برای درخشش رنگ‌های RGB) */
+        /* پس‌زمینه پارالکس */
         .parallax-bg {
-            background-image: linear-gradient(rgba(5, 5, 7, 0.85), rgba(5, 5, 7, 0.98)), url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop');
+            background-image: linear-gradient(rgba(5, 5, 7, 0.88), rgba(5, 5, 7, 0.98)), url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop');
             background-attachment: fixed;
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
         }
 
-        /* افکت نقره‌ای براق برای نام زیواک */
+        /* افکت نقره‌ای براق */
         .shiny-silver {
             background: linear-gradient(to right, #9ca3af 0%, #ffffff 50%, #9ca3af 100%);
             background-size: 200% auto;
@@ -53,14 +53,14 @@
         }
         @keyframes shine { to { background-position: 200% center; } }
 
-        /* متن با گرادیانت RGB مدرن */
+        /* متن با گرادیانت RGB */
         .rgb-text {
             background: linear-gradient(to right, #00f2fe, #4facfe);
             -webkit-background-clip: text;
             color: transparent;
         }
 
-        /* نوار شیشه‌ای بالای سایت */
+        /* نوار شیشه‌ای */
         .glass-nav {
             background: rgba(255, 255, 255, 0.02);
             backdrop-filter: blur(16px);
@@ -68,65 +68,87 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        /* کارت‌های شیشه‌ای با افکت هاور RGB */
+        /* کارت‌های شیشه‌ای استاندارد */
         .glass-card {
             background: rgba(255, 255, 255, 0.02);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.05);
             transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-            border-radius: 1rem;
+            border-radius: 1.25rem;
         }
-        
         .glass-card:hover {
             transform: translateY(-5px);
-            border-color: rgba(0, 242, 254, 0.4);
-            box-shadow: 0 10px 30px -10px rgba(0, 242, 254, 0.2);
+            border-color: rgba(0, 242, 254, 0.3);
+            box-shadow: 0 10px 30px -10px rgba(0, 242, 254, 0.15);
         }
 
-        /* دکمه با افکت درخشش RGB */
-        .btn-rgb {
+        /* کارت پرچمدار (هولوگرام) با هاله نوری داخلی */
+        .flagship-card {
+            background: linear-gradient(145deg, rgba(255,255,255,0.03) 0%, rgba(79,172,254,0.05) 100%);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(79, 172, 254, 0.2);
             position: relative;
+            overflow: hidden;
+            border-radius: 1.5rem;
+            transition: all 0.4s ease;
+        }
+        .flagship-card:hover {
+            border-color: rgba(79, 172, 254, 0.5);
+            box-shadow: 0 15px 40px -10px rgba(79, 172, 254, 0.2);
+            transform: translateY(-3px);
+        }
+        /* افکت نوری متحرک در پس‌زمینه کارت پرچمدار */
+        .flagship-card::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(79,172,254,0.08) 0%, transparent 50%);
+            animation: rotateGlow 15s linear infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+        @keyframes rotateGlow { 100% { transform: rotate(360deg); } }
+        .card-content { position: relative; z-index: 1; }
+
+        /* دکمه‌های مارکت‌ها */
+        .market-btn {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
             transition: all 0.3s ease;
-            overflow: hidden;
         }
-        .btn-rgb:hover {
-            border-color: #00f2fe;
-            box-shadow: 0 0 20px rgba(0, 242, 254, 0.3);
-            color: #ffffff;
+        .market-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.3);
         }
 
-        /* بج‌های وضعیت کاملاً فارسی و شیک */
+        /* بج‌های وضعیت */
         .badge {
             font-size: 0.75rem;
             padding: 4px 12px;
             border-radius: 20px;
             font-weight: 600;
         }
-        .badge-cyan { background: rgba(0, 242, 254, 0.1); color: #00f2fe; border: 1px solid rgba(0, 242, 254, 0.2); }
         .badge-purple { background: rgba(79, 172, 254, 0.1); color: #4facfe; border: 1px solid rgba(79, 172, 254, 0.2); }
-        .badge-gray { background: rgba(255, 255, 255, 0.05); color: #9ca3af; border: 1px solid rgba(255, 255, 255, 0.1); }
+        .badge-cyan { background: rgba(0, 242, 254, 0.1); color: #00f2fe; border: 1px solid rgba(0, 242, 254, 0.2); }
     </style>
 </head>
 <body class="parallax-bg antialiased selection:bg-xyCyan selection:text-xyDark flex flex-col min-h-screen">
 
-    <!-- نوار بالای سایت (ساده، شیشه‌ای و بدون کلمات انگلیسی) -->
+    <!-- نوار بالا -->
     <nav class="glass-nav w-full fixed top-0 z-50 px-6 py-4 flex justify-between items-center">
         <div class="text-2xl font-black shiny-silver tracking-widest">XYVAK</div>
         <div class="hidden md:flex gap-8 text-gray-400 text-sm font-medium">
-            <a href="#projects" class="hover:text-white transition-colors">پروژه‌ها</a>
-            <a href="#about" class="hover:text-white transition-colors">درباره زیواک</a>
+            <a href="#flagship" class="hover:text-white transition-colors">هولوگرام</a>
+            <a href="#toolkits" class="hover:text-white transition-colors">جعبه‌ابزارها</a>
         </div>
-        <a href="#projects" class="text-sm font-bold text-white bg-white/10 hover:bg-white/20 px-4 py-2 rounded-full transition-colors border border-white/10">
-            مشاهده ابزارها
+        <a href="#flagship" class="text-sm font-bold text-white bg-white/10 hover:bg-white/20 px-5 py-2 rounded-full transition-colors border border-white/10">
+            محصولات
         </a>
     </nav>
 
-    <!-- بخش اصلی معرفی (Hero Section) -->
+    <!-- بخش معرفی اصلی -->
     <main class="flex-grow pt-32 md:pt-40 px-6 max-w-7xl mx-auto w-full">
         
         <section class="text-center max-w-3xl mx-auto mb-24">
@@ -134,94 +156,127 @@
                 زیـواک
             </h1>
             <h2 class="text-xl md:text-3xl font-light mb-8 tracking-wide rgb-text">
-                آزمایشگاه توسعه ابزارهای مستقل
+                استودیوی توسعه ابزارهای مستقل
             </h2>
-            <p class="text-gray-400 text-base md:text-lg leading-loose max-w-2xl mx-auto mb-10">
-                تمرکز ما در زیواک، خلق ابزارهای کاربردی، بهینه‌سازی‌شده و مستقل است. بستری برای توسعه‌ی اپلیکیشن‌های اندروید، میکرو-تولزهای تحت وب و بررسی تحلیلی فناوری‌های روز؛ بدون پیچیدگی‌های اضافه و دقیقاً متناسب با نیاز کاربر.
+            <p class="text-gray-400 text-base md:text-lg leading-loose max-w-2xl mx-auto">
+                تمرکز ما در زیواک، خلق ابزارهای کاربردی، بهینه‌سازی‌شده و مستقل است. از پیام‌رسان‌های آفلاین تا مجموعه‌ی جعبه‌ابزارهای روزمره؛ بدون پیچیدگی‌های اضافه و دقیقاً متناسب با نیاز شما.
             </p>
-            
-            <div class="flex justify-center">
-                <a href="#projects" class="btn-rgb px-8 py-3 rounded-full text-gray-300 font-bold flex items-center gap-2">
-                    شروع کنید
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg>
-                </a>
-            </div>
         </section>
 
-        <!-- بخش پروژه‌ها -->
-        <section id="projects" class="pb-32">
-            <div class="flex items-center gap-4 mb-12 opacity-90">
-                <h3 class="text-xl font-bold text-white">پروژه‌های فعال</h3>
+        <!-- بخش پرچمدار: هولوگرام -->
+        <section id="flagship" class="pb-20">
+            <div class="flex items-center gap-4 mb-8 opacity-90">
+                <h3 class="text-xl font-bold text-white">محصول ویژه</h3>
                 <div class="h-[1px] flex-grow bg-gradient-to-l from-white/20 to-transparent"></div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="flagship-card p-8 md:p-10 flex flex-col md:flex-row gap-8 items-center">
+                <!-- آیکون بزرگ -->
+                <div class="card-content w-24 h-24 md:w-32 md:h-32 flex-shrink-0 rounded-3xl bg-gradient-to-br from-white/10 to-transparent border border-white/20 flex items-center justify-center text-xyPurple shadow-2xl">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 md:h-16 md:w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" /></svg>
+                </div>
                 
-                <!-- کارت 1: اپلیکیشن اندروید -->
-                <div class="glass-card p-8 flex flex-col h-full group">
-                    <div class="flex justify-between items-start mb-8">
-                        <div class="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center text-gray-300 group-hover:text-xyCyan transition-colors border border-white/10 shadow-lg">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>
+                <!-- توضیحات و دکمه‌ها -->
+                <div class="card-content flex-grow text-center md:text-right">
+                    <div class="flex flex-col md:flex-row justify-between items-center md:items-start mb-4 gap-4">
+                        <div>
+                            <h3 class="text-3xl font-bold text-white mb-2">هولوگرام | پیام‌رسان آفلاین</h3>
+                            <p class="text-gray-400 text-base leading-relaxed max-w-xl">
+                                ارتباط امن و سریع بدون نیاز به اینترنت. هولوگرام به شما اجازه می‌دهد در مواقع قطعی شبکه یا در محیط‌های بسته، از طریق فناوری‌های محلی با اطرافیان خود در ارتباط باشید.
+                            </p>
                         </div>
-                        <span class="badge badge-cyan">منتشر شده</span>
+                        <span class="badge badge-purple whitespace-nowrap">منتشر شده</span>
+                    </div>
+                    
+                    <!-- اکشن‌ها -->
+                    <div class="flex flex-wrap justify-center md:justify-start gap-3 mt-8">
+                        <a href="https://cafebazaar.ir/app/com.xyvak.hologram" target="_blank" class="market-btn px-5 py-2.5 rounded-xl text-sm font-bold text-white flex items-center gap-2">
+                            دریافت از کافه‌بازار
+                        </a>
+                        <a href="https://myket.ir/app/com.xyvak.hologram" target="_blank" class="market-btn px-5 py-2.5 rounded-xl text-sm font-bold text-white flex items-center gap-2">
+                            دریافت از مایکت
+                        </a>
+                        <a href="#" class="px-5 py-2.5 rounded-xl text-sm font-bold text-xyPurple hover:bg-white/5 transition-colors border border-transparent hover:border-white/10">
+                            صفحه اختصاصی &larr;
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- بخش سری جعبه‌ابزارها -->
+        <section id="toolkits" class="pb-32">
+            <div class="flex items-center gap-4 mb-8 opacity-90">
+                <h3 class="text-xl font-bold text-white">سری جعبه‌ابزارهای زیواک</h3>
+                <span class="text-sm text-gray-500 bg-white/5 px-3 py-1 rounded-full border border-white/10">۲ از ۱۰ منتشر شده</span>
+                <div class="h-[1px] flex-grow bg-gradient-to-l from-white/20 to-transparent"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- ابزار 1: فرکانس -->
+                <div class="glass-card p-8 flex flex-col h-full group">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center text-gray-300 group-hover:text-xyCyan transition-colors border border-white/10">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                        </div>
+                        <span class="badge badge-cyan">ابزار ۰۱</span>
                     </div>
                     <h3 class="text-xl font-bold text-white mb-3">جعبه ابزار فرکانس</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-6 flex-grow">
-                        اپلیکیشن آفلاین اندروید برای تولید امواج صوتی، تست اسپیکر و خروج آب از بلندگوی گوشی.
+                    <p class="text-gray-400 text-sm leading-relaxed mb-8 flex-grow">
+                        تولید امواج صوتی دقیق، تست سلامت اسپیکر و قابلیت ویژه خروج آب و گردوغبار از بلندگوی گوشی.
                     </p>
-                    <div class="text-xs text-gray-500 font-medium flex gap-3">
-                        <span>کافه بازار</span>
-                        <span>•</span>
-                        <span>مایکت</span>
+                    
+                    <div class="flex flex-col gap-2 mt-auto">
+                        <div class="flex gap-2">
+                            <a href="https://cafebazaar.ir/app/appinventor.ai_112armanhannani.Insect_repellent" target="_blank" class="market-btn flex-1 text-center py-2 rounded-lg text-xs font-bold text-gray-300">بازار</a>
+                            <a href="https://myket.ir/app/appinventor.ai_112armanhannani.Insect_repellent" target="_blank" class="market-btn flex-1 text-center py-2 rounded-lg text-xs font-bold text-gray-300">مایکت</a>
+                        </div>
+                        <a href="#" class="text-center py-2 text-xs font-bold text-xyCyan hover:text-white transition-colors">توضیحات کامل</a>
                     </div>
                 </div>
 
-                <!-- کارت 2: مجله هوش مصنوعی -->
+                <!-- ابزار 2: چراغ‌قوه -->
                 <div class="glass-card p-8 flex flex-col h-full group">
-                    <div class="flex justify-between items-start mb-8">
-                        <div class="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center text-gray-300 group-hover:text-xyPurple transition-colors border border-white/10 shadow-lg">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" /></svg>
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center text-gray-300 group-hover:text-xyCyan transition-colors border border-white/10">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>
                         </div>
-                        <span class="badge badge-purple">در حال توسعه</span>
+                        <span class="badge badge-cyan">ابزار ۰۲</span>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3">مجله فناوری و AI</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-6 flex-grow">
-                        بررسی مدل‌های زبانی، مقایسه ابزارهای هوش مصنوعی و انتشار مقالات کاربردی بدون حاشیه.
+                    <h3 class="text-xl font-bold text-white mb-3">جعبه ابزار چراغ‌قوه</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-8 flex-grow">
+                        مدیریت هوشمند فلش گوشی، حالت چشمک‌زن قابل تنظیم و ارسال سیگنال نوری SOS در مواقع اضطراری.
                     </p>
-                    <div class="text-xs text-gray-500 font-medium flex gap-3">
-                        <span>محتوا</span>
-                        <span>•</span>
-                        <span>وبلاگ</span>
+                    
+                    <div class="flex flex-col gap-2 mt-auto">
+                        <div class="flex gap-2">
+                            <a href="https://cafebazaar.ir/app/appinventor.ai_112armanhannani.on" target="_blank" class="market-btn flex-1 text-center py-2 rounded-lg text-xs font-bold text-gray-300">بازار</a>
+                            <a href="https://myket.ir/app/appinventor.ai_112armanhannani.on" target="_blank" class="market-btn flex-1 text-center py-2 rounded-lg text-xs font-bold text-gray-300">مایکت</a>
+                        </div>
+                        <a href="#" class="text-center py-2 text-xs font-bold text-xyCyan hover:text-white transition-colors">توضیحات کامل</a>
                     </div>
                 </div>
 
-                <!-- کارت 3: ابزارهای تحت وب -->
-                <div class="glass-card p-8 flex flex-col h-full group">
-                    <div class="flex justify-between items-start mb-8">
-                        <div class="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center text-gray-300 group-hover:text-white transition-colors border border-white/10 shadow-lg">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" /></svg>
-                        </div>
-                        <span class="badge badge-gray">به زودی</span>
+                <!-- ابزارهای آینده (Placeholder) -->
+                <div class="glass-card p-8 flex flex-col h-full justify-center items-center text-center border-dashed border-white/20 opacity-60 hover:opacity-100">
+                    <div class="w-14 h-14 rounded-full bg-white/5 flex items-center justify-center text-gray-500 mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" /></svg>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3">میکرو تولز</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-6 flex-grow">
-                        مجموعه‌ای از ابزارهای سبک تحت وب برای پردازش متن، محاسبات سریع و ابزارهای توسعه‌دهندگان.
+                    <h3 class="text-lg font-bold text-gray-300 mb-2">۸ ابزار دیگر در راه است...</h3>
+                    <p class="text-gray-500 text-xs leading-relaxed">
+                        مجموعه جعبه‌ابزارهای زیواک به مرور تکمیل خواهد شد. منتظر ابزارهای کاربردی جدید باشید.
                     </p>
-                    <div class="text-xs text-gray-500 font-medium flex gap-3">
-                        <span>تحت وب</span>
-                        <span>•</span>
-                        <span>آنلاین</span>
-                    </div>
                 </div>
 
             </div>
         </section>
     </main>
 
-    <!-- فوتر ساده و فارسی -->
+    <!-- فوتر -->
     <footer class="border-t border-white/10 bg-black/40 backdrop-blur-md py-8 text-center mt-auto">
         <div class="text-gray-500 text-sm">
-            &copy; ۲۰۲۶ زیواک. تمامی حقوق محفوظ است.
+            &copy; ۲۰۲۶ استودیو زیواک. تمامی حقوق محفوظ است.
         </div>
     </footer>
 
