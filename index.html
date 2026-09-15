@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>زیواک | Xyvak - آزمایشگاه ابزارهای هوشمند</title>
+    <title>زیواک | Xyvak Labs</title>
     
     <!-- فونت وزیرمتن -->
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.0.0/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
     
-    <!-- استفاده از تلویند برای چیدمان سریع -->
+    <!-- تلویند -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -16,9 +16,11 @@
                 extend: {
                     fontFamily: { sans: ['Vazirmatn', 'sans-serif'] },
                     colors: {
-                        xyBlack: '#050505',
+                        xyBlack: '#030303',
+                        xyDark: '#0a0a0c',
                         xyYellow: '#FFD700',
                         xyRed: '#E63946',
+                        xySilver: '#e5e7eb',
                     }
                 }
             }
@@ -26,194 +28,213 @@
     </script>
 
     <style>
-        /* استایل‌های اختصاصی و افکت‌های حرفه‌ای */
         body {
-            background-color: #050505;
-            color: #ffffff;
-            overflow-x: hidden;
+            background-color: #030303;
+            color: #e5e7eb;
+            /* پترن نویز بسیار ملایم برای خروج از سادگی مطلق */
+            background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 30px 30px;
         }
 
-        /* افکت پارالکس پس‌زمینه */
-        .parallax-bg {
-            background-image: linear-gradient(rgba(5, 5, 5, 0.8), rgba(5, 5, 5, 0.95)), url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop');
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-
-        /* افکت نقره‌ای براق متحرک برای اسم زیواک */
+        /* افکت نقره‌ای براق فقط برای لوگو */
         .shiny-silver {
-            background: linear-gradient(to right, #8a8a8a 0%, #ffffff 50%, #8a8a8a 100%);
+            background: linear-gradient(to right, #9ca3af 0%, #ffffff 50%, #9ca3af 100%);
             background-size: 200% auto;
             color: transparent;
             -webkit-background-clip: text;
             background-clip: text;
-            animation: shine 3s linear infinite;
+            animation: shine 4s linear infinite;
         }
         @keyframes shine {
             to { background-position: 200% center; }
         }
 
-        /* طراحی شیشه‌ای کارت‌ها */
-        .glass-card {
+        /* استایل منوی مدرن (Pill Menu) */
+        .nav-pill {
             background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 215, 0, 0.1);
-            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
         }
-        .glass-card:hover {
-            border-color: rgba(255, 215, 0, 0.5);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px -10px rgba(255, 215, 0, 0.2);
+        .nav-link {
+            position: relative;
+            color: #9ca3af;
+            transition: color 0.3s ease;
         }
+        .nav-link:hover { color: #ffffff; }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0; height: 2px;
+            bottom: -4px; right: 0;
+            background-color: #FFD700;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after { width: 100%; }
 
-        /* دکمه‌های زرد درخشان */
-        .btn-glow {
-            transition: all 0.3s ease;
+        /* کارت‌های آزمایشگاهی با افکت ردیابی موس (Glow) */
+        .lab-card {
+            background-color: #0a0a0c;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            position: relative;
+            overflow: hidden;
+            transition: border-color 0.3s ease, transform 0.3s ease;
         }
-        .btn-glow:hover {
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
-            transform: scale(1.05);
+        .lab-card:hover {
+            border-color: rgba(255, 215, 0, 0.3);
+            transform: translateY(-2px);
         }
+        
+        /* هاله نوری زیر موس */
+        .lab-card::before {
+            content: "";
+            position: absolute;
+            top: var(--y, 0);
+            left: var(--x, 0);
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.05) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .lab-card:hover::before { opacity: 1; }
+        
+        .card-content { position: relative; z-index: 1; }
 
-        /* دکمه قرمز (اکشن خاص) */
-        .btn-red-glow:hover {
-            box-shadow: 0 0 20px rgba(230, 57, 70, 0.6);
-            transform: scale(1.05);
+        /* بج‌های وضعیت (Status Badges) */
+        .badge {
+            font-size: 0.7rem;
+            padding: 2px 8px;
+            border-radius: 12px;
+            letter-spacing: 0.5px;
         }
+        .badge-live { background: rgba(230, 57, 70, 0.1); color: #E63946; border: 1px solid rgba(230, 57, 70, 0.2); }
+        .badge-dev { background: rgba(255, 215, 0, 0.1); color: #FFD700; border: 1px solid rgba(255, 215, 0, 0.2); }
     </style>
 </head>
-<body class="parallax-bg antialiased selection:bg-xyYellow selection:text-xyBlack">
+<body class="antialiased selection:bg-xyYellow selection:text-xyBlack flex flex-col min-h-screen">
 
-    <!-- هدر سایت -->
-    <nav class="w-full p-6 flex justify-between items-center border-b border-white/10 glass-card fixed top-0 z-50">
-        <div class="text-3xl font-bold shiny-silver tracking-widest">XYVAK</div>
-        <div class="hidden md:flex gap-8 text-gray-300">
-            <a href="#about" class="hover:text-xyYellow transition">درباره زیواک</a>
-            <a href="#tools" class="hover:text-xyYellow transition">ابزارها</a>
-            <a href="#ai" class="hover:text-xyYellow transition">مجله هوش مصنوعی</a>
-        </div>
-        <a href="#download" class="bg-xyYellow text-xyBlack px-5 py-2 rounded-full font-bold text-sm btn-glow">
-            دانلود اپلیکیشن
-        </a>
-    </nav>
+    <!-- هدر مینیمال -->
+    <header class="w-full p-6 flex justify-center fixed top-0 z-50 pointer-events-none">
+        <nav class="nav-pill px-6 py-3 rounded-full flex items-center gap-8 pointer-events-auto shadow-2xl">
+            <a href="#" class="text-xl font-black shiny-silver tracking-widest ml-4">XYVAK</a>
+            <div class="hidden md:flex gap-6 text-sm font-medium">
+                <a href="#labs" class="nav-link">آزمایشگاه پروژه‌ها</a>
+                <a href="#about" class="nav-link">درباره ما</a>
+            </div>
+        </nav>
+    </header>
 
-    <!-- بخش اصلی (Hero Section) -->
-    <section class="min-h-screen flex flex-col justify-center items-center text-center px-4 pt-20">
-        <h1 class="text-6xl md:text-8xl font-black mb-4 shiny-silver pb-2">
-            زیـواک
-        </h1>
-        <h2 class="text-xl md:text-3xl text-xyYellow font-light mb-8 max-w-2xl leading-relaxed">
-            آزمایشگاه ابزارهای هوشمند و مرجع فناوری‌های نوین
-        </h2>
-        <p class="text-gray-400 mb-12 max-w-xl text-lg">
-            از ابزارهای کاربردی روزمره تا بررسی جدیدترین مدل‌های هوش مصنوعی. ما در زیواک، آینده را به گوشی شما می‌آوریم.
-        </p>
-        
-        <div class="flex flex-col sm:flex-row gap-4">
-            <a href="#tools" class="bg-xyYellow text-xyBlack px-8 py-4 rounded-xl font-bold text-lg btn-glow flex items-center justify-center gap-2">
-                شروع کنید
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm.707-10.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L9.414 11H13a1 1 0 100-2H9.414l1.293-1.293z" clip-rule="evenodd" /></svg>
-            </a>
-            
-            <!-- دکمه تعاملی تولید فرکانس با رنگ قرمز -->
-            <button onclick="playFrequency()" class="bg-xyBlack border border-xyRed text-xyRed px-8 py-4 rounded-xl font-bold text-lg btn-red-glow flex items-center justify-center gap-2">
-                تست آنلاین فرکانس
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" /></svg>
-            </button>
-        </div>
-    </section>
+    <!-- بخش معرفی (Hero) - واقع‌بینانه و تمیز -->
+    <main class="flex-grow pt-32 px-6 max-w-6xl mx-auto w-full">
+        <section class="py-20 md:py-32 max-w-3xl">
+            <h1 class="text-5xl md:text-7xl font-black mb-6 text-white tracking-tight">
+                زیواک
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-400 font-light mb-6 leading-relaxed">
+                توسعه ابزارهای کاربردی و بررسی فناوری.
+            </p>
+            <p class="text-gray-500 text-base md:text-lg leading-loose max-w-2xl">
+                زیواک یک بستر مستقل برای ساخت ابزارهای ساده‌ی اندرویدی، توسعه‌ی میکرو-تولزهای تحت وب و انتشار مقالات در حوزه هوش مصنوعی است. هدف ما ساخت ابزارهایی است که یک کار را انجام می‌دهند، اما آن را درست انجام می‌دهند.
+            </p>
+        </section>
 
-    <!-- بخش معرفی امکانات -->
-    <section id="tools" class="py-20 px-6 max-w-7xl mx-auto">
-        <div class="text-center mb-16">
-            <h3 class="text-3xl font-bold shiny-silver mb-2">اکوسیستم زیواک</h3>
-            <div class="w-24 h-1 bg-xyYellow mx-auto rounded-full"></div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- کارت 1 -->
-            <div class="glass-card p-8 rounded-2xl text-center">
-                <div class="w-16 h-16 bg-xyYellow/10 text-xyYellow rounded-full flex items-center justify-center mx-auto mb-6 text-2xl">
-                    📱
-                </div>
-                <h4 class="text-xl font-bold text-white mb-3">اپلیکیشن‌های کاربردی</h4>
-                <p class="text-gray-400 text-sm leading-loose">
-                    توسعه ابزارهای سبک و سریع اندرویدی. جعبه ابزار فرکانس زیواک هم‌اکنون با هزاران کاربر فعال در دسترس شماست.
-                </p>
+        <!-- بخش آزمایشگاه (Google Labs Style Bento Grid) -->
+        <section id="labs" class="pb-32">
+            <div class="flex items-center gap-4 mb-10">
+                <h2 class="text-2xl font-bold text-white">پروژه‌ها</h2>
+                <div class="h-[1px] flex-grow bg-white/10"></div>
             </div>
 
-            <!-- کارت 2 -->
-            <div class="glass-card p-8 rounded-2xl text-center relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-full h-1 bg-gradient-to-r from-xyBlack via-xyRed to-xyBlack"></div>
-                <div class="w-16 h-16 bg-xyRed/10 text-xyRed rounded-full flex items-center justify-center mx-auto mb-6 text-2xl">
-                    🤖
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- پروژه 1: اپلیکیشن اندروید -->
+                <div class="lab-card rounded-2xl p-8 flex flex-col h-full cursor-pointer group">
+                    <div class="card-content flex flex-col h-full">
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-gray-300 group-hover:text-xyYellow transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>
+                            </div>
+                            <span class="badge badge-live">منتشر شده</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">جعبه ابزار فرکانس</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-6 flex-grow">
+                            اپلیکیشن آفلاین اندروید برای تولید امواج صوتی، تست اسپیکر و خروج آب از بلندگوی گوشی.
+                        </p>
+                        <div class="text-xs text-gray-500 flex gap-3">
+                            <span>اندروید</span>
+                            <span>•</span>
+                            <span>کافه بازار / مایکت</span>
+                        </div>
+                    </div>
                 </div>
-                <h4 class="text-xl font-bold text-white mb-3">مجله هوش مصنوعی</h4>
-                <p class="text-gray-400 text-sm leading-loose">
-                    بررسی، مقایسه و آموزش جدیدترین مدل‌های هوش مصنوعی در دنیا. با زیواک همیشه یک قدم جلوتر باشید.
-                </p>
-            </div>
 
-            <!-- کارت 3 -->
-            <div class="glass-card p-8 rounded-2xl text-center">
-                <div class="w-16 h-16 bg-gray-500/10 text-gray-300 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl">
-                    ⚡
+                <!-- پروژه 2: مجله هوش مصنوعی -->
+                <div class="lab-card rounded-2xl p-8 flex flex-col h-full cursor-pointer group">
+                    <div class="card-content flex flex-col h-full">
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-gray-300 group-hover:text-xyRed transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" /></svg>
+                            </div>
+                            <span class="badge badge-dev">در حال توسعه</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">مجله AI</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-6 flex-grow">
+                            بررسی مدل‌های زبانی، مقایسه ابزارهای هوش مصنوعی و انتشار اخبار کاربردی بدون حاشیه.
+                        </p>
+                        <div class="text-xs text-gray-500 flex gap-3">
+                            <span>محتوا</span>
+                            <span>•</span>
+                            <span>وبلاگ</span>
+                        </div>
+                    </div>
                 </div>
-                <h4 class="text-xl font-bold text-white mb-3">ابزارهای آنلاین</h4>
-                <p class="text-gray-400 text-sm leading-loose">
-                    به زودی مجموعه‌ای از ابزارهای تحت وب (Micro-Tools) بدون نیاز به نصب، مستقیماً در مرورگر شما قرار خواهد گرفت.
-                </p>
+
+                <!-- پروژه 3: ابزارهای تحت وب -->
+                <div class="lab-card rounded-2xl p-8 flex flex-col h-full cursor-pointer group">
+                    <div class="card-content flex flex-col h-full">
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-gray-300 group-hover:text-white transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" /></svg>
+                            </div>
+                            <span class="badge badge-dev">به زودی</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">میکرو تولز</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-6 flex-grow">
+                            مجموعه‌ای از ابزارهای سبک تحت وب برای پردازش متن، محاسبات سریع و ابزارهای توسعه‌دهندگان.
+                        </p>
+                        <div class="text-xs text-gray-500 flex gap-3">
+                            <span>وب</span>
+                            <span>•</span>
+                            <span>جاوااسکریپت</span>
+                        </div>
+                    </div>
+                </div>
+
             </div>
+        </section>
+    </main>
+
+    <!-- فوتر مینیمال -->
+    <footer class="border-t border-white/5 py-8 text-center mt-auto">
+        <div class="text-gray-600 text-sm">
+            &copy; 2026 Xyvak. ابزارهایی برای استفاده روزمره.
         </div>
-    </section>
-
-    <!-- فوتر -->
-    <footer class="border-t border-white/10 bg-xyBlack/80 backdrop-blur-md py-8 text-center mt-20">
-        <div class="text-2xl font-bold shiny-silver mb-4">XYVAK</div>
-        <p class="text-gray-500 text-sm">© 2026 توسعه یافته با قدرت و خلاقیت. تمامی حقوق محفوظ است.</p>
     </footer>
 
-    <!-- اسکریپت تولید فرکانس صوتی -->
+    <!-- اسکریپت افکت ردیابی موس روی کارت‌ها -->
     <script>
-        let audioCtx = null;
-        function playFrequency() {
-            // ایجاد کانتکست صوتی در صورت عدم وجود
-            if (!audioCtx) {
-                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-            }
-            
-            // ساخت یک اوسیلاتور (تولیدکننده موج)
-            const oscillator = audioCtx.createOscillator();
-            const gainNode = audioCtx.createGain();
-            
-            // تنظیم فرکانس روی 165 هرتز (فرکانس خروج آب)
-            oscillator.type = 'sine';
-            oscillator.frequency.setValueAtTime(165, audioCtx.currentTime);
-            
-            // تنظیم صدا (Fade out برای جلوگیری از صدای آزاردهنده)
-            gainNode.gain.setValueAtTime(1, audioCtx.currentTime);
-            gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 1.5);
-            
-            // اتصال و پخش
-            oscillator.connect(gainNode);
-            gainNode.connect(audioCtx.destination);
-            oscillator.start();
-            oscillator.stop(audioCtx.currentTime + 1.5);
-            
-            // تغییر متن دکمه برای جذابیت
-            const btn = document.querySelector('button');
-            const originalText = btn.innerHTML;
-            btn.innerHTML = '🔊 در حال پخش فرکانس 165Hz...';
-            btn.classList.add('bg-xyRed', 'text-white');
-            
-            setTimeout(() => {
-                btn.innerHTML = originalText;
-                btn.classList.remove('bg-xyRed', 'text-white');
-            }, 1500);
-        }
+        document.querySelectorAll('.lab-card').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--x', `${x}px`);
+                card.style.setProperty('--y', `${y}px`);
+            });
+        });
     </script>
 </body>
 </html>
