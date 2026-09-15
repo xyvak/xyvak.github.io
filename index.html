@@ -2,26 +2,218 @@
 <html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>زیواک | Xyvak</title>
-    <style>
-        body {
-            background-color: #0d1117;
-            color: #ffffff;
-            font-family: sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            text-align: center;
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>زیواک | Xyvak - آزمایشگاه ابزارهای هوشمند</title>
+    
+    <!-- فونت وزیرمتن -->
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.0.0/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+    
+    <!-- استفاده از تلویند برای چیدمان سریع -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Vazirmatn', 'sans-serif'] },
+                    colors: {
+                        xyBlack: '#050505',
+                        xyYellow: '#FFD700',
+                        xyRed: '#E63946',
+                    }
+                }
+            }
         }
-        h1 { color: #58a6ff; font-size: 3rem; }
+    </script>
+
+    <style>
+        /* استایل‌های اختصاصی و افکت‌های حرفه‌ای */
+        body {
+            background-color: #050505;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* افکت پارالکس پس‌زمینه */
+        .parallax-bg {
+            background-image: linear-gradient(rgba(5, 5, 5, 0.8), rgba(5, 5, 5, 0.95)), url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop');
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        /* افکت نقره‌ای براق متحرک برای اسم زیواک */
+        .shiny-silver {
+            background: linear-gradient(to right, #8a8a8a 0%, #ffffff 50%, #8a8a8a 100%);
+            background-size: 200% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: shine 3s linear infinite;
+        }
+        @keyframes shine {
+            to { background-position: 200% center; }
+        }
+
+        /* طراحی شیشه‌ای کارت‌ها */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            transition: all 0.4s ease;
+        }
+        .glass-card:hover {
+            border-color: rgba(255, 215, 0, 0.5);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px -10px rgba(255, 215, 0, 0.2);
+        }
+
+        /* دکمه‌های زرد درخشان */
+        .btn-glow {
+            transition: all 0.3s ease;
+        }
+        .btn-glow:hover {
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+            transform: scale(1.05);
+        }
+
+        /* دکمه قرمز (اکشن خاص) */
+        .btn-red-glow:hover {
+            box-shadow: 0 0 20px rgba(230, 57, 70, 0.6);
+            transform: scale(1.05);
+        }
     </style>
 </head>
-<body>
-    <div>
-        <h1>زیواک (Xyvak)</h1>
-        <p>به زودی... آزمایشگاه هوش مصنوعی و ابزارهای کاربردی</p>
-    </div>
+<body class="parallax-bg antialiased selection:bg-xyYellow selection:text-xyBlack">
+
+    <!-- هدر سایت -->
+    <nav class="w-full p-6 flex justify-between items-center border-b border-white/10 glass-card fixed top-0 z-50">
+        <div class="text-3xl font-bold shiny-silver tracking-widest">XYVAK</div>
+        <div class="hidden md:flex gap-8 text-gray-300">
+            <a href="#about" class="hover:text-xyYellow transition">درباره زیواک</a>
+            <a href="#tools" class="hover:text-xyYellow transition">ابزارها</a>
+            <a href="#ai" class="hover:text-xyYellow transition">مجله هوش مصنوعی</a>
+        </div>
+        <a href="#download" class="bg-xyYellow text-xyBlack px-5 py-2 rounded-full font-bold text-sm btn-glow">
+            دانلود اپلیکیشن
+        </a>
+    </nav>
+
+    <!-- بخش اصلی (Hero Section) -->
+    <section class="min-h-screen flex flex-col justify-center items-center text-center px-4 pt-20">
+        <h1 class="text-6xl md:text-8xl font-black mb-4 shiny-silver pb-2">
+            زیـواک
+        </h1>
+        <h2 class="text-xl md:text-3xl text-xyYellow font-light mb-8 max-w-2xl leading-relaxed">
+            آزمایشگاه ابزارهای هوشمند و مرجع فناوری‌های نوین
+        </h2>
+        <p class="text-gray-400 mb-12 max-w-xl text-lg">
+            از ابزارهای کاربردی روزمره تا بررسی جدیدترین مدل‌های هوش مصنوعی. ما در زیواک، آینده را به گوشی شما می‌آوریم.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-4">
+            <a href="#tools" class="bg-xyYellow text-xyBlack px-8 py-4 rounded-xl font-bold text-lg btn-glow flex items-center justify-center gap-2">
+                شروع کنید
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm.707-10.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L9.414 11H13a1 1 0 100-2H9.414l1.293-1.293z" clip-rule="evenodd" /></svg>
+            </a>
+            
+            <!-- دکمه تعاملی تولید فرکانس با رنگ قرمز -->
+            <button onclick="playFrequency()" class="bg-xyBlack border border-xyRed text-xyRed px-8 py-4 rounded-xl font-bold text-lg btn-red-glow flex items-center justify-center gap-2">
+                تست آنلاین فرکانس
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" /></svg>
+            </button>
+        </div>
+    </section>
+
+    <!-- بخش معرفی امکانات -->
+    <section id="tools" class="py-20 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h3 class="text-3xl font-bold shiny-silver mb-2">اکوسیستم زیواک</h3>
+            <div class="w-24 h-1 bg-xyYellow mx-auto rounded-full"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- کارت 1 -->
+            <div class="glass-card p-8 rounded-2xl text-center">
+                <div class="w-16 h-16 bg-xyYellow/10 text-xyYellow rounded-full flex items-center justify-center mx-auto mb-6 text-2xl">
+                    📱
+                </div>
+                <h4 class="text-xl font-bold text-white mb-3">اپلیکیشن‌های کاربردی</h4>
+                <p class="text-gray-400 text-sm leading-loose">
+                    توسعه ابزارهای سبک و سریع اندرویدی. جعبه ابزار فرکانس زیواک هم‌اکنون با هزاران کاربر فعال در دسترس شماست.
+                </p>
+            </div>
+
+            <!-- کارت 2 -->
+            <div class="glass-card p-8 rounded-2xl text-center relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-full h-1 bg-gradient-to-r from-xyBlack via-xyRed to-xyBlack"></div>
+                <div class="w-16 h-16 bg-xyRed/10 text-xyRed rounded-full flex items-center justify-center mx-auto mb-6 text-2xl">
+                    🤖
+                </div>
+                <h4 class="text-xl font-bold text-white mb-3">مجله هوش مصنوعی</h4>
+                <p class="text-gray-400 text-sm leading-loose">
+                    بررسی، مقایسه و آموزش جدیدترین مدل‌های هوش مصنوعی در دنیا. با زیواک همیشه یک قدم جلوتر باشید.
+                </p>
+            </div>
+
+            <!-- کارت 3 -->
+            <div class="glass-card p-8 rounded-2xl text-center">
+                <div class="w-16 h-16 bg-gray-500/10 text-gray-300 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl">
+                    ⚡
+                </div>
+                <h4 class="text-xl font-bold text-white mb-3">ابزارهای آنلاین</h4>
+                <p class="text-gray-400 text-sm leading-loose">
+                    به زودی مجموعه‌ای از ابزارهای تحت وب (Micro-Tools) بدون نیاز به نصب، مستقیماً در مرورگر شما قرار خواهد گرفت.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- فوتر -->
+    <footer class="border-t border-white/10 bg-xyBlack/80 backdrop-blur-md py-8 text-center mt-20">
+        <div class="text-2xl font-bold shiny-silver mb-4">XYVAK</div>
+        <p class="text-gray-500 text-sm">© 2026 توسعه یافته با قدرت و خلاقیت. تمامی حقوق محفوظ است.</p>
+    </footer>
+
+    <!-- اسکریپت تولید فرکانس صوتی -->
+    <script>
+        let audioCtx = null;
+        function playFrequency() {
+            // ایجاد کانتکست صوتی در صورت عدم وجود
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+            
+            // ساخت یک اوسیلاتور (تولیدکننده موج)
+            const oscillator = audioCtx.createOscillator();
+            const gainNode = audioCtx.createGain();
+            
+            // تنظیم فرکانس روی 165 هرتز (فرکانس خروج آب)
+            oscillator.type = 'sine';
+            oscillator.frequency.setValueAtTime(165, audioCtx.currentTime);
+            
+            // تنظیم صدا (Fade out برای جلوگیری از صدای آزاردهنده)
+            gainNode.gain.setValueAtTime(1, audioCtx.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 1.5);
+            
+            // اتصال و پخش
+            oscillator.connect(gainNode);
+            gainNode.connect(audioCtx.destination);
+            oscillator.start();
+            oscillator.stop(audioCtx.currentTime + 1.5);
+            
+            // تغییر متن دکمه برای جذابیت
+            const btn = document.querySelector('button');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '🔊 در حال پخش فرکانس 165Hz...';
+            btn.classList.add('bg-xyRed', 'text-white');
+            
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.classList.remove('bg-xyRed', 'text-white');
+            }, 1500);
+        }
+    </script>
 </body>
 </html>
