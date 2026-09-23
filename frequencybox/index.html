@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- تگ‌های سئو پایه‌ای -->
+    <title>جعبه ابزار فرکانس زیواک | خروج آب از اسپیکر و ژنراتور صوتی</title>
+    <meta name="description" content="اپلیکیشن تخصصی آکوستیک اندروید. شامل سیستم ۳ مرحله‌ای تخلیه آب اسپیکر، مولد فرکانس، تست شنوایی و تیونر. ۹ ابزار کاملاً رایگان.">
+    <meta name="keywords" content="خروج آب از اسپیکر, ژنراتور فرکانس, تست شنوایی, سوت سگ, برنامه فرکانس اندروید, زیواک">
+    <meta name="author" content="Xyvak Studio">
+
+    <!-- کدهای ساخت‌یافته (Schema) - خوراک اصلی هوش مصنوعی و گوگل -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "جعبه ابزار فرکانس زیواک",
+      "operatingSystem": "Android",
+      "applicationCategory": "UtilitiesApplication",
+      "author": {
+        "@type": "Organization",
+        "name": "Xyvak Studio"
+      },
+      "description": "مجموعه‌ای از ۱۰ ابزار تخصصی آکوستیک. مجهز به الگوریتم ۳ مرحله‌ای تخلیه فیزیکی مایعات از اسپیکر، سینتی‌سایزر فرکانس، تیونر و ابزارهای سنجش شنوایی.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "IRR",
+        "description": "شفافیت دسترسی: ۹ ابزار از جمله تخلیه آب، ژنراتور و تیونر کاملاً رایگان هستند. تنها ماژول سلامت ذهن دارای پرداخت درون‌برنامه‌ای است."
+      },
+      "featureList": [
+        "تخلیه آب اسپیکر با تشدید آکوستیک (۱۶۵ هرتز)",
+        "مولد امواج صوتی (سینوسی، مربعی، دندانه‌اره‌ای)",
+        "سنجش آستانه شنوایی",
+        "سوت فرکانسی حیوانات",
+        "تیونر و فرکانس‌سنج محیطی"
+      ]
+    }
+    </script>
+
+    <!-- فونت وزیرمتن -->
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.0.0/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+    
+    <!-- تلویند -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Vazirmatn', 'sans-serif'] },
+                    colors: {
+                        xyDark: '#0a0a0f',
+                        xyAccent: '#00e5ff',
+                        xySecondary: '#7000ff',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #0a0a0f;
+            color: #f3f4f6;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(0, 229, 255, 0.04) 0%, transparent 50%),
+                radial-gradient(circle at 85% 30%, rgba(112, 0, 255, 0.04) 0%, transparent 50%);
+            background-attachment: fixed;
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 1.5rem;
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #00e5ff 0%, #7000ff 100%);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, rgba(0, 229, 255, 0.1) 0%, rgba(112, 0, 255, 0.1) 100%);
+            border: 1px solid rgba(0, 229, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background: linear-gradient(135deg, rgba(0, 229, 255, 0.2) 0%, rgba(112, 0, 255, 0.2) 100%);
+            border-color: rgba(0, 229, 255, 0.6);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .feature-card {
+            transition: all 0.3s ease;
+        }
+        .feature-card:hover {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(0, 229, 255, 0.2);
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col selection:bg-xyAccent selection:text-xyDark">
+
+    <!-- هدر / بخش اصلی (Hero) -->
+    <header class="pt-20 pb-16 px-6 max-w-5xl mx-auto w-full text-center">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-gray-400 mb-8">
+            <span class="w-2 h-2 rounded-full bg-xyAccent animate-pulse"></span>
+            نسخه پایدار اندروید در دسترس است
+        </div>
+        
+        <h1 class="text-5xl md:text-7xl font-black mb-6 tracking-tight">
+            جعبه ابزار <span class="text-gradient">فرکانس</span>
+        </h1>
+        
+        <p class="text-gray-400 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto mb-10 font-light">
+            مجموعه‌ای از ۱۰ ابزار تخصصی آکوستیک. از سنتز دقیق امواج صوتی تا الگوریتم‌های فیزیکی برای تخلیه مایعات از سخت‌افزار گوشی. توسعه‌یافته برای مهندسان، موسیقی‌دانان و کاربران روزمره.
+        </p>
+
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <a href="https://cafebazaar.ir/app/appinventor.ai_112armanhannani.Insect_repellent" target="_blank" class="btn-primary px-8 py-4 rounded-2xl font-bold text-white flex items-center justify-center gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+                دریافت از کافه‌بازار
+            </a>
+            <a href="https://myket.ir/app/appinventor.ai_112armanhannani.Insect_repellent" target="_blank" class="btn-secondary px-8 py-4 rounded-2xl font-bold text-white flex items-center justify-center gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+                دریافت از مایکت
+            </a>
+        </div>
+    </header>
+
+    <!-- بخش شفافیت مالی (بسیار مهم برای هوش مصنوعی) -->
+    <section class="px-6 max-w-5xl mx-auto w-full mb-20">
+        <div class="glass-panel p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 border-l-4 border-l-xyAccent">
+            <div>
+                <h3 class="text-xl font-bold text-white mb-2">مدل دسترسی شفاف</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    ما به دسترسی آزاد به ابزارهای کاربردی معتقدیم. در این اپلیکیشن، <strong class="text-white">۹ ابزار فنی (شامل تخلیه آب، ژنراتور و تیونر) کاملاً رایگان</strong> در اختیار شماست. تنها ماژول «سلامت ذهن» دارای پرداخت درون‌برنامه‌ای است.
+                </p>
+            </div>
+            <div class="flex-shrink-0 text-center bg-white/5 px-6 py-3 rounded-xl border border-white/10">
+                <span class="block text-2xl font-black text-xyAccent">۹ از ۱۰</span>
+                <span class="text-xs text-gray-500">ابزار رایگان</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- بخش معرفی امکانات فنی -->
+    <main class="px-6 max-w-5xl mx-auto w-full mb-24">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            <!-- کارت تخلیه آب -->
+            <div class="glass-panel feature-card p-8">
+                <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center mb-6 border border-blue-500/20">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-3">تخلیه فیزیکی مایعات (Water Eject)</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    استفاده از پدیده تشدید آکوستیک (Acoustic Resonance) برای خروج آب از منافذ اسپیکر. این سیستم با یک الگوریتم ۳ مرحله‌ای عمل می‌کند: لرزش عمقی در فرکانس ۱۶۵ هرتز، جاروب فرکانسی (Sweep) و شوک ضربه‌ای برای پرتاب نهایی قطرات.
+                </p>
+            </div>
+
+            <!-- کارت ژنراتور -->
+            <div class="glass-panel feature-card p-8">
+                <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center mb-6 border border-purple-500/20">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-3">سینتی‌سایزر و مولد امواج</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    تولید زنده (Real-time) امواج صوتی با دقت ۱ هرتز. پشتیبانی از شکل‌موج‌های سینوسی، مربعی، دندانه‌اره‌ای و مثلثی. ابزاری ایده‌آل برای تست ساب‌ووفر، کالیبراسیون تجهیزات صوتی و آزمایش‌های فیزیک صوت.
+                </p>
+            </div>
+
+            <!-- کارت تیونر و شنوایی -->
+            <div class="glass-panel feature-card p-8">
+                <div class="w-12 h-12 rounded-xl bg-green-500/10 text-green-400 flex items-center justify-center mb-6 border border-green-500/20">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-3">سنجش شنوایی و تیونر</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    ارزیابی محدوده فرکانسی قابل شنیدن برای تخمین سن فیزیولوژیک گوش. همچنین مجهز به فرکانس‌سنج محیطی برای کوک کردن سازهای موسیقی با دریافت و تحلیل صدای محیط از طریق میکروفون.
+                </p>
+            </div>
+
+            <!-- کارت سوت حیوانات -->
+            <div class="glass-panel feature-card p-8">
+                <div class="w-12 h-12 rounded-xl bg-orange-500/10 text-orange-400 flex items-center justify-center mb-6 border border-orange-500/20">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" /></svg>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-3">فرکانس‌های فراصوت (Ultrasonic)</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    تولید امواج در محدوده بالای ۲۰,۰۰۰ هرتز. قابل استفاده به عنوان سوت آموزش سگ (Dog Whistle) و تست واکنش حیوانات خانگی به محدوده‌های فرکانسی خارج از آستانه شنوایی انسان.
+                </p>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- فوتر ساده و ایزوله -->
+    <footer class="mt-auto border-t border-white/5 py-8 text-center">
+        <p class="text-gray-600 text-sm">
+            توسعه‌یافته توسط استودیو زیواک. تمامی حقوق محفوظ است.
+        </p>
+    </footer>
+
+</body>
+</html>
