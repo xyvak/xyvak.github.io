@@ -1,267 +1,470 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>جعبه ابزار فرکانس | خروج آب از اسپیکر و تولید امواج صوتی</title>
-    <meta name="description" content="دانلود برنامه جعبه ابزار فرکانس برای اندروید. راهکار علمی خروج آب از بلندگوی گوشی با امواج صوتی، ژنراتور فرکانس، تست سلامت اسپیکر و سوت سگ. ۹ ابزار کاملاً رایگان.">
-    <meta name="keywords" content="خروج آب از اسپیکر, تمیز کردن بلندگو, ژنراتور فرکانس, تولید موج صوتی, تست شنوایی, سوت سگ, برنامه فرکانس اندروید, تعمیر اسپیکر خیس">
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-    <meta property="og:title" content="جعبه ابزار فرکانس | پاکسازی اسپیکر">
-    <meta property="og:description" content="اپلیکیشن تخصصی تولید فرکانس و خروج فیزیکی آب از اسپیکر گوشی با الگوریتم سه مرحله‌ای.">
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="fa_IR">
-    <link rel="canonical" href="https://xyvak.github.io/frequencybox/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>جعبه ابزار فرکانس | خروج آب از اسپیکر و ژنراتور صوتی</title>
+<meta name="description" content="دانلود برنامه جعبه ابزار فرکانس برای اندروید. راهکار علمی خروج آب از بلندگوی گوشی شیائومی و سامسونگ با امواج صوتی، ژنراتور فرکانس، تست سلامت اسپیکر و سوت سگ.">
+<meta name="keywords" content="خروج آب از اسپیکر, تمیز کردن بلندگو, رفع خش خش اسپیکر, ژنراتور فرکانس, تولید موج صوتی, تست شنوایی, سوت سگ, برنامه فرکانس اندروید, تعمیر اسپیکر خیس, آب رفتن تو گوشی">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta property="og:title" content="جعبه ابزار فرکانس | پاکسازی اسپیکر و تولید امواج">
+<meta property="og:description" content="اپلیکیشن تخصصی تولید فرکانس و خروج فیزیکی آب از اسپیکر گوشی با الگوریتم سه مرحله‌ای تشدید آکوستیک.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fa_IR">
+<link rel="canonical" href="https://xyvak.github.io/frequencybox/">
+<link rel="preload" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.0.0/Vazirmatn-font-face.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.0.0/Vazirmatn-font-face.css"></noscript>
 
-    <script type="application/ld+json">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "جعبه ابزار فرکانس",
+  "operatingSystem": "Android",
+  "applicationCategory": "UtilitiesApplication",
+  "description": "اپلیکیشن جامع آکوستیک برای اندروید شامل ابزارهای پاکسازی فیزیکی آب از بلندگو، سینتی‌سایزر فرکانس، سنجش آستانه شنوایی و تولید امواج فراصوت. طراحی شده برای کاربران روزمره و تکنسین‌های موبایل.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "IRR",
+    "description": "۹ ابزار کاربردی شامل تخلیه آب، ژنراتور امواج و تست شنوایی کاملاً رایگان است. تنها بخش سلامت ذهن دارای پرداخت درون‌برنامه‌ای می‌باشد."
+  },
+  "featureList": [
+    "خروج آب از اسپیکر با فرکانس ۱۶۵ هرتز",
+    "تولید امواج سینوسی، مربعی و دندانه‌اره‌ای",
+    "سنجش آستانه شنوایی گوش",
+    "تولید امواج فراصوت برای دفع آفات و سوت سگ"
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "چگونه آب را از اسپیکر گوشی خارج کنیم؟",
+  "description": "مراحل علمی خروج قطرات آب و رفع خش‌خش بلندگوی گوشی با استفاده از پدیده تشدید آکوستیک و اپلیکیشن جعبه ابزار فرکانس.",
+  "step": [
     {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "جعبه ابزار فرکانس",
-      "operatingSystem": "Android",
-      "applicationCategory": "UtilitiesApplication",
-      "description": "اپلیکیشن جامع آکوستیک برای اندروید شامل ابزارهای پاکسازی فیزیکی آب از بلندگو، سینتی‌سایزر فرکانس، سنجش آستانه شنوایی و تولید امواج فراصوت. طراحی شده برای کاربران روزمره و تکنسین‌های موبایل.",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "IRR",
-        "description": "۹ ابزار کاربردی شامل تخلیه آب، ژنراتور امواج و تست شنوایی کاملاً رایگان است. تنها بخش سلامت ذهن دارای پرداخت درون‌برنامه‌ای می‌باشد."
-      },
-      "featureList": [
-        "خروج آب از اسپیکر با فرکانس ۱۶۵ هرتز",
-        "تولید امواج سینوسی، مربعی و دندانه‌اره‌ای",
-        "سنجش آستانه شنوایی گوش",
-        "تولید امواج فراصوت برای دفع آفات و سوت سگ"
-      ]
+      "@type": "HowToStep",
+      "name": "لرزش عمیق",
+      "text": "ابتدا صدای گوشی را تا انتها زیاد کنید. برنامه با پخش موج سینوسی در فرکانس ۱۶۵ هرتز، بیشترین دامنه حرکتی را در دیافراگم اسپیکر ایجاد می‌کند تا قطرات آب جدا شوند."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "جاروب فرکانسی",
+      "text": "در مرحله دوم، فرکانس به صورت متناوب از محدوده‌های بم به زیر تغییر می‌کند تا مایعات به سمت خروجی منافذ توری اسپیکر هدایت شوند."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "شوک ضربه‌ای",
+      "text": "در نهایت، پالس‌های صوتی کوتاه و قدرتمندی پخش می‌شود که به عنوان نیروی محرکه، ذرات آب را به طور کامل به بیرون پرتاب می‌کند."
     }
-    </script>
+  ]
+}
+</script>
 
-    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.0.0/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: { sans: ['Vazirmatn', 'sans-serif'] },
-                    colors: {
-                        xyDark: '#07070a',
-                        xyAccent: '#00e5ff',
-                        xySecondary: '#7000ff',
-                    }
-                }
-            }
-        }
-    </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "آیا این روش برای اسپیکر گوشی شیائومی و سامسونگ کاربرد دارد؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "بله، فیزیک صوت و پدیده تشدید آکوستیک در تمام بلندگوها یکسان عمل می‌کند. این اپلیکیشن روی تمامی برندهای اندرویدی از جمله شیائومی، سامسونگ، هواوی و موتورولا با بالاترین بازدهی کار می‌کند."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "خش خش بلندگو بعد از افتادن در آب چگونه رفع می‌شود؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "خش‌خش اسپیکر به دلیل گیر کردن لایه‌ای از آب روی دیافراگم است که مانع لرزش آزادانه آن می‌شود. با پخش فرکانس‌های زیر ۲۰۰ هرتز، این لایه آب شکسته شده و صدای گوشی به حالت شفاف اولیه بازمی‌گردد."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "آیا استفاده از سشوار یا کیسه برنج برای خشک کردن گوشی ایمن است؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "خیر. حرارت سشوار باعث ذوب شدن چسب‌های ضدآب داخلی گوشی می‌شود و کیسه برنج نیز گرد و غبار ریز را وارد موتور ویبره و پورت شارژ می‌کند. استفاده از امواج صوتی تنها روش فیزیکی و ایمن تایید شده است."
+      }
+    }
+  ]
+}
+</script>
 
-    <style>
-        body {
-            background-color: #07070a;
-            color: #e5e7eb;
-            background-image: 
-                radial-gradient(circle at 10% 40%, rgba(0, 229, 255, 0.03) 0%, transparent 40%),
-                radial-gradient(circle at 90% 60%, rgba(112, 0, 255, 0.03) 0%, transparent 40%);
-            background-attachment: fixed;
-            line-height: 1.8;
-        }
-
-        .shiny-silver {
-            background: linear-gradient(to right, #9ca3af 0%, #ffffff 50%, #9ca3af 100%);
-            background-size: 200% auto;
-            color: transparent;
-            -webkit-background-clip: text;
-            background-clip: text;
-            animation: shine 4s linear infinite;
-        }
-        @keyframes shine { to { background-position: 200% center; } }
-
-        .glass-nav {
-            background: rgba(7, 7, 10, 0.7);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.02);
-        }
-
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 1.5rem;
-        }
-
-        .text-gradient {
-            background: linear-gradient(135deg, #00e5ff 0%, #7000ff 100%);
-            -webkit-background-clip: text;
-            color: transparent;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, rgba(0, 229, 255, 0.1) 0%, rgba(112, 0, 255, 0.1) 100%);
-            border: 1px solid rgba(0, 229, 255, 0.3);
-            transition: all 0.3s ease;
-        }
-        .btn-primary:hover {
-            background: linear-gradient(135deg, rgba(0, 229, 255, 0.2) 0%, rgba(112, 0, 255, 0.2) 100%);
-            border-color: rgba(0, 229, 255, 0.6);
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-        }
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
-        }
-
-        article h2 {
-            color: #ffffff;
-            font-size: 1.75rem;
-            font-weight: 800;
-            margin-top: 2.5rem;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-        
-        article h2::before {
-            content: "";
-            display: block;
-            width: 6px;
-            height: 24px;
-            background: #00e5ff;
-            border-radius: 4px;
-        }
-
-        article h3 {
-            color: #e5e7eb;
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-top: 1.5rem;
-            margin-bottom: 0.75rem;
-        }
-
-        article p {
-            margin-bottom: 1.25rem;
-            color: #9ca3af;
-            text-align: justify;
-        }
-
-        article ul {
-            list-style-type: none;
-            padding-right: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        article ul li {
-            position: relative;
-            padding-right: 1.5rem;
-            margin-bottom: 0.5rem;
-            color: #d1d5db;
-        }
-
-        article ul li::before {
-            content: "•";
-            position: absolute;
-            right: 0;
-            color: #00e5ff;
-            font-size: 1.5rem;
-            line-height: 1;
-            top: -2px;
-        }
-    </style>
+<style>
+:root {
+  --bg-color: #07070a;
+  --text-main: #e5e7eb;
+  --text-muted: #9ca3af;
+  --accent-cyan: #00e5ff;
+  --accent-purple: #7000ff;
+  --glass-bg: rgba(255, 255, 255, 0.02);
+  --glass-border: rgba(255, 255, 255, 0.05);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Vazirmatn', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  line-height: 1.8;
+  background-image: radial-gradient(circle at 10% 40%, rgba(0, 229, 255, 0.03) 0%, transparent 40%),
+                    radial-gradient(circle at 90% 60%, rgba(112, 0, 255, 0.03) 0%, transparent 40%);
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+.container {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 0 24px;
+  width: 100%;
+}
+.nav-bar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 12px 24px;
+  background: rgba(7, 7, 10, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--glass-border);
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+}
+@media (min-width: 768px) {
+  .nav-bar {
+    justify-content: flex-start;
+  }
+}
+.logo {
+  font-size: 1.25rem;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  background: linear-gradient(to right, #9ca3af 0%, #ffffff 50%, #9ca3af 100%);
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shine 4s linear infinite;
+  transition: opacity 0.3s;
+}
+.logo:hover {
+  opacity: 0.8;
+}
+@keyframes shine {
+  to { background-position: 200% center; }
+}
+.hero {
+  padding-top: 140px;
+  padding-bottom: 60px;
+  text-align: center;
+}
+.h1-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 900;
+  margin-bottom: 24px;
+  line-height: 1.2;
+}
+.text-gradient {
+  background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-purple) 100%);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.hero-desc {
+  font-size: clamp(1.1rem, 2vw, 1.25rem);
+  color: #d1d5db;
+  max-width: 650px;
+  margin: 0 auto 40px auto;
+  font-weight: 500;
+}
+.btn-group {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+}
+@media (min-width: 600px) {
+  .btn-group {
+    flex-direction: row;
+  }
+}
+.btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 32px;
+  border-radius: 16px;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  width: 100%;
+  justify-content: center;
+}
+@media (min-width: 600px) {
+  .btn {
+    width: auto;
+  }
+}
+.btn-primary {
+  background: linear-gradient(135deg, rgba(0, 229, 255, 0.1) 0%, rgba(112, 0, 255, 0.1) 100%);
+  border: 1px solid rgba(0, 229, 255, 0.3);
+  color: #ffffff;
+}
+.btn-primary:hover {
+  background: linear-gradient(135deg, rgba(0, 229, 255, 0.2) 0%, rgba(112, 0, 255, 0.2) 100%);
+  border-color: rgba(0, 229, 255, 0.6);
+  transform: translateY(-2px);
+}
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+.btn svg {
+  width: 24px;
+  height: 24px;
+}
+.glass-panel {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  padding: 32px;
+  margin-bottom: 80px;
+}
+@media (min-width: 768px) {
+  .glass-panel {
+    padding: 48px;
+  }
+}
+article h2 {
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-top: 40px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+@media (min-width: 768px) {
+  article h2 {
+    font-size: 1.75rem;
+  }
+}
+article h2::before {
+  content: "";
+  display: block;
+  width: 6px;
+  height: 24px;
+  background: var(--accent-cyan);
+  border-radius: 4px;
+}
+article h2:first-child {
+  margin-top: 0;
+}
+article p {
+  margin-bottom: 20px;
+  color: var(--text-muted);
+  text-align: justify;
+}
+article strong {
+  color: #d1d5db;
+}
+article ul {
+  list-style-type: none;
+  padding-right: 16px;
+  margin-bottom: 24px;
+}
+article ul li {
+  position: relative;
+  padding-right: 24px;
+  margin-bottom: 12px;
+  color: #d1d5db;
+}
+article ul li::before {
+  content: "•";
+  position: absolute;
+  right: 0;
+  color: var(--accent-cyan);
+  font-size: 1.5rem;
+  line-height: 1;
+  top: -2px;
+}
+.faq-section {
+  margin-top: 48px;
+  border-top: 1px solid var(--glass-border);
+  padding-top: 32px;
+}
+details {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+summary {
+  padding: 16px 20px;
+  font-weight: 700;
+  color: #e5e7eb;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+summary::-webkit-details-marker {
+  display: none;
+}
+summary::after {
+  content: "+";
+  color: var(--accent-cyan);
+  font-size: 1.5rem;
+  font-weight: 300;
+  transition: transform 0.3s;
+}
+details[open] summary::after {
+  transform: rotate(45deg);
+}
+.faq-content {
+  padding: 0 20px 20px 20px;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+.thin-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.03);
+  padding: 12px 0;
+  text-align: center;
+  margin-top: auto;
+}
+.thin-footer p {
+  color: #4b5563;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+}
+</style>
 </head>
-<body class="antialiased min-h-screen flex flex-col selection:bg-xyAccent selection:text-xyDark">
+<body>
 
-    <nav class="glass-nav w-full fixed top-0 z-50 px-6 py-3 flex justify-center md:justify-start items-center">
-        <a href="https://xyvak.github.io" class="text-xl font-black shiny-silver tracking-widest hover:opacity-80 transition-opacity">
-            XYVAK
-        </a>
-    </nav>
+<nav class="nav-bar">
+  <a href="https://xyvak.github.io" class="logo">XYVAK</a>
+</nav>
 
-    <header class="pt-32 pb-12 px-6 max-w-4xl mx-auto w-full text-center">
-        <h1 class="text-4xl md:text-6xl font-black mb-6 tracking-tight leading-tight">
-            جعبه ابزار <span class="text-gradient">فرکانس</span>
-        </h1>
-        <p class="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-medium">
-            راهکار قطعی و علمی برای خروج آب از اسپیکر گوشی، تولید دقیق امواج صوتی و سنجش فرکانس. مجموعه‌ای از ۱۰ ابزار کاربردی در یک اپلیکیشن سبک و بهینه‌شده.
-        </p>
+<header class="hero container">
+  <h1 class="h1-title">جعبه ابزار <span class="text-gradient">فرکانس</span></h1>
+  <p class="hero-desc">
+    راهکار قطعی و علمی برای خروج آب از اسپیکر گوشی، تولید دقیق امواج صوتی و سنجش فرکانس. مجموعه‌ای از ۱۰ ابزار کاربردی در یک اپلیکیشن سبک و بهینه‌شده.
+  </p>
+  <div class="btn-group">
+    <a href="https://cafebazaar.ir/app/appinventor.ai_112armanhannani.Insect_repellent" target="_blank" class="btn btn-primary">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+      دانلود از کافه‌بازار
+    </a>
+    <a href="https://myket.ir/app/appinventor.ai_112armanhannani.Insect_repellent" target="_blank" class="btn btn-secondary">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+      دانلود از مایکت
+    </a>
+  </div>
+</header>
 
-        <div class="flex flex-col sm:flex-row justify-center gap-4 mb-8">
-            <a href="https://cafebazaar.ir/app/appinventor.ai_112armanhannani.Insect_repellent" target="_blank" class="btn-primary px-8 py-4 rounded-2xl font-bold text-white flex items-center justify-center gap-3">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
-                دانلود از کافه‌بازار
-            </a>
-            <a href="https://myket.ir/app/appinventor.ai_112armanhannani.Insect_repellent" target="_blank" class="btn-secondary px-8 py-4 rounded-2xl font-bold text-white flex items-center justify-center gap-3">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
-                دانلود از مایکت
-            </a>
+<main class="container">
+  <article class="glass-panel">
+    
+    <section>
+      <h2>نجات گوشی خیس شده؛ چگونه آب را از اسپیکر خارج کنیم؟</h2>
+      <p>
+        افتادن گوشی در آب، استخر یا حتی ریختن مایعات روی آن، یکی از رایج‌ترین حوادثی است که کاربران گوشی‌های هوشمند با آن مواجه می‌شوند. در این مواقع، اولین قطعه‌ای که دچار اختلال جدی می‌شود، بلندگو یا اسپیکر گوشی است. نفوذ قطرات آب به داخل منافذ توری اسپیکر باعث می‌شود صدای خروجی به شدت ضعیف، خفه و همراه با نویز شنیده شود.
+      </p>
+      <p>
+        بسیاری از افراد در این شرایط به روش‌های سنتی و مخربی مانند استفاده از سشوار داغ، فرو کردن سوزن در منافذ یا قرار دادن گوشی در کیسه برنج روی می‌آورند. حرارت سشوار می‌تواند چسب‌های ضدآب داخلی گوشی را ذوب کند و ذرات ریز برنج نیز به راحتی وارد موتور ویبره یا پورت شارژ می‌شوند. راهکار علمی و تایید شده برای این مشکل، استفاده از پدیده فیزیکی تشدید آکوستیک (Acoustic Resonance) است.
+      </p>
+    </section>
+
+    <section>
+      <h2>الگوریتم سه مرحله‌ای خروج آب در جعبه ابزار فرکانس</h2>
+      <p>
+        این اپلیکیشن مجهز به یک سیستم پیشرفته و خودکار برای پاکسازی بلندگو است. این سیستم به جای پخش یک صدای ساده، از یک الگوریتم دقیق سه مرحله‌ای استفاده می‌کند تا قطرات آب و حتی ذرات ریز گرد و غبار را از دیافراگم اسپیکر جدا کرده و به بیرون پرتاب کند:
+      </p>
+      <ul>
+        <li><strong>مرحله اول (لرزش عمیق):</strong> پخش موج سینوسی در فرکانس دقیق ۱۶۵ هرتز. این فرکانس باعث ایجاد بیشترین دامنه حرکتی در دیافراگم اسپیکرهای موبایل می‌شود و قطرات چسبیده به توری را جدا می‌کند.</li>
+        <li><strong>مرحله دوم (جاروب فرکانسی یا Sweep):</strong> تغییر مداوم و سریع فرکانس از محدوده‌های بم به زیر. این تغییرات متناوب باعث هدایت مایعات به سمت خروجی منافذ می‌شود.</li>
+        <li><strong>مرحله سوم (شوک ضربه‌ای):</strong> ایجاد پالس‌های صوتی کوتاه و قدرتمند که به عنوان یک نیروی محرکه نهایی، ذرات آب را به طور کامل به بیرون پرتاب می‌کند.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>ژنراتور فرکانس صوتی (Audio Frequency Generator)</h2>
+      <p>
+        بخش مولد امواج در این اپلیکیشن، یک ابزار قدرتمند برای تکنسین‌های تعمیرات موبایل، مهندسان و کاربران روزمره است. این ابزار به شما اجازه می‌دهد تا امواج صوتی را با دقت یک هرتز (از ۱ هرتز تا ۲۲۰۰۰ هرتز) به صورت زنده (Real-time) تولید کنید.
+      </p>
+      <p>
+        شما می‌توانید نوع شکل‌موج خروجی را بر اساس نیاز خود تغییر دهید. موج‌های پشتیبانی شده شامل موج سینوسی (برای تست خلوص صدای اسپیکر)، موج مربعی، موج دندانه‌اره‌ای و موج مثلثی می‌باشند. از این بخش می‌توان برای تست سلامت ساب‌ووفرها، پیدا کردن فرکانس تشدید اشیاء و کالیبراسیون تجهیزات صوتی استفاده کرد.
+      </p>
+    </section>
+
+    <section>
+      <h2>تست شنوایی و امواج فراصوت (Ultrasonic)</h2>
+      <p>
+        گوش انسان در حالت طبیعی قادر به شنیدن فرکانس‌هایی بین ۲۰ هرتز تا ۲۰ هزار هرتز است. با بالا رفتن سن، توانایی شنیدن فرکانس‌های بالا (زیر) کاهش می‌یابد. ابزار تست شنوایی موجود در این برنامه به شما کمک می‌کند تا آستانه شنوایی خود را بسنجید و سن فیزیولوژیک گوش خود را تخمین بزنید.
+      </p>
+      <p>
+        علاوه بر این، قابلیت تولید امواج فراصوت (بالای ۲۰ کیلوهرتز) در این اپلیکیشن تعبیه شده است. این امواج برای گوش انسان قابل شنیدن نیستند اما حیوانات واکنش دقیقی به آن‌ها نشان می‌دهند. از این فرکانس‌ها می‌توان به عنوان سوت سگ (Dog Whistle) برای آموزش حیوانات خانگی یا بررسی واکنش آفات به امواج اولتراسونیک استفاده نمود.
+      </p>
+    </section>
+
+    <section class="faq-section">
+      <h2>سوالات متداول (FAQ)</h2>
+      
+      <details>
+        <summary>آیا این روش برای اسپیکر گوشی شیائومی و سامسونگ کاربرد دارد؟</summary>
+        <div class="faq-content">
+          بله، فیزیک صوت و پدیده تشدید آکوستیک در تمام بلندگوها یکسان عمل می‌کند. این اپلیکیشن روی تمامی برندهای اندرویدی از جمله شیائومی، سامسونگ، هواوی و موتورولا با بالاترین بازدهی کار می‌کند و نیازی به تنظیمات اختصاصی برای هر برند ندارد.
         </div>
-    </header>
+      </details>
 
-    <main class="px-6 max-w-4xl mx-auto w-full mb-24">
-        <article class="glass-panel p-6 md:p-10">
-            
-            <section>
-                <h2>نجات گوشی خیس شده؛ چگونه آب را از اسپیکر خارج کنیم؟</h2>
-                <p>
-                    افتادن گوشی در آب، استخر یا حتی ریختن مایعات روی آن، یکی از رایج‌ترین حوادثی است که کاربران گوشی‌های هوشمند با آن مواجه می‌شوند. در این مواقع، اولین قطعه‌ای که دچار اختلال جدی می‌شود، بلندگو یا اسپیکر گوشی است. نفوذ قطرات آب به داخل منافذ توری اسپیکر باعث می‌شود صدای خروجی به شدت ضعیف، خفه و همراه با نویز شنیده شود.
-                </p>
-                <p>
-                    بسیاری از افراد در این شرایط به روش‌های سنتی و مخربی مانند استفاده از سشوار داغ، فرو کردن سوزن در منافذ یا قرار دادن گوشی در کیسه برنج روی می‌آورند. حرارت سشوار می‌تواند چسب‌های ضدآب داخلی گوشی را ذوب کند و ذرات ریز برنج نیز به راحتی وارد موتور ویبره یا پورت شارژ می‌شوند. راهکار علمی و تایید شده برای این مشکل، استفاده از پدیده فیزیکی تشدید آکوستیک (Acoustic Resonance) است.
-                </p>
-            </section>
+      <details>
+        <summary>خش خش بلندگو بعد از افتادن در آب چگونه رفع می‌شود؟</summary>
+        <div class="faq-content">
+          خش‌خش اسپیکر به دلیل گیر کردن لایه‌ای از آب روی دیافراگم است که مانع لرزش آزادانه آن می‌شود. با اجرای بخش پاکسازی اسپیکر و پخش فرکانس‌های زیر ۲۰۰ هرتز، این لایه آب شکسته شده و صدای گوشی به حالت شفاف اولیه بازمی‌گردد.
+        </div>
+      </details>
 
-            <section>
-                <h2>الگوریتم سه مرحله‌ای خروج آب در جعبه ابزار فرکانس</h2>
-                <p>
-                    این اپلیکیشن مجهز به یک سیستم پیشرفته و خودکار برای پاکسازی بلندگو است. این سیستم به جای پخش یک صدای ساده، از یک الگوریتم دقیق سه مرحله‌ای استفاده می‌کند تا قطرات آب و حتی ذرات ریز گرد و غبار را از دیافراگم اسپیکر جدا کرده و به بیرون پرتاب کند:
-                </p>
-                <ul>
-                    <li><strong>مرحله اول (لرزش عمیق):</strong> پخش موج سینوسی در فرکانس دقیق ۱۶۵ هرتز. این فرکانس باعث ایجاد بیشترین دامنه حرکتی در دیافراگم اسپیکرهای موبایل می‌شود و قطرات چسبیده به توری را جدا می‌کند.</li>
-                    <li><strong>مرحله دوم (جاروب فرکانسی یا Sweep):</strong> تغییر مداوم و سریع فرکانس از محدوده‌های بم به زیر. این تغییرات متناوب باعث هدایت مایعات به سمت خروجی منافذ می‌شود.</li>
-                    <li><strong>مرحله سوم (شوک ضربه‌ای):</strong> ایجاد پالس‌های صوتی کوتاه و قدرتمند که به عنوان یک نیروی محرکه نهایی، ذرات آب را به طور کامل به بیرون پرتاب می‌کند.</li>
-                </ul>
-            </section>
+      <details>
+        <summary>آیا استفاده از سشوار یا کیسه برنج برای خشک کردن گوشی ایمن است؟</summary>
+        <div class="faq-content">
+          خیر. حرارت سشوار باعث ذوب شدن چسب‌های ضدآب داخلی گوشی می‌شود و کیسه برنج نیز گرد و غبار ریز را وارد موتور ویبره و پورت شارژ می‌کند. استفاده از امواج صوتی تنها روش فیزیکی و ایمن تایید شده برای خروج مایعات است.
+        </div>
+      </details>
+    </section>
 
-            <section>
-                <h2>ژنراتور فرکانس صوتی (Audio Frequency Generator)</h2>
-                <p>
-                    بخش مولد امواج در این اپلیکیشن، یک ابزار قدرتمند برای تکنسین‌های تعمیرات موبایل، علاقه‌مندان به فیزیک صوت و کاربران روزمره است. این ابزار به شما اجازه می‌دهد تا امواج صوتی را با دقت یک هرتز (از ۱ هرتز تا ۲۲۰۰۰ هرتز) به صورت زنده (Real-time) تولید کنید.
-                </p>
-                <p>
-                    شما می‌توانید نوع شکل‌موج خروجی را بر اساس نیاز خود تغییر دهید. موج‌های پشتیبانی شده شامل موج سینوسی (برای تست خلوص صدای اسپیکر)، موج مربعی، موج دندانه‌اره‌ای و موج مثلثی می‌باشند. از این بخش می‌توان برای تست سلامت ساب‌ووفرها، پیدا کردن فرکانس تشدید اشیاء و کالیبراسیون تجهیزات صوتی استفاده کرد.
-                </p>
-            </section>
+  </article>
+</main>
 
-            <section>
-                <h2>تست شنوایی و امواج فراصوت (Ultrasonic)</h2>
-                <p>
-                    گوش انسان در حالت طبیعی قادر به شنیدن فرکانس‌هایی بین ۲۰ هرتز تا ۲۰ هزار هرتز است. با بالا رفتن سن، توانایی شنیدن فرکانس‌های بالا (زیر) کاهش می‌یابد. ابزار تست شنوایی موجود در این برنامه به شما کمک می‌کند تا آستانه شنوایی خود را بسنجید و سن فیزیولوژیک گوش خود را تخمین بزنید.
-                </p>
-                <p>
-                    علاوه بر این، قابلیت تولید امواج فراصوت (بالای ۲۰ کیلوهرتز) در این اپلیکیشن تعبیه شده است. این امواج برای گوش انسان قابل شنیدن نیستند اما حیوانات واکنش دقیقی به آن‌ها نشان می‌دهند. از این فرکانس‌ها می‌توان به عنوان سوت سگ (Dog Whistle) برای آموزش حیوانات خانگی یا بررسی واکنش آفات به امواج اولتراسونیک استفاده نمود.
-                </p>
-            </section>
-
-            <section>
-                <h2>شفافیت در دسترسی به امکانات</h2>
-                <p>
-                    مدل دسترسی به امکانات برنامه کاملاً شفاف طراحی شده است. از مجموع ۱۰ ابزار موجود در جعبه ابزار فرکانس، <strong>۹ ابزار به صورت کاملاً رایگان</strong> در اختیار کاربران قرار دارد. ابزارهایی نظیر تخلیه آب اسپیکر، ژنراتور امواج، تست شنوایی، سوت حیوانات و تیونر بدون هیچ‌گونه محدودیتی قابل استفاده هستند و تنها بخش مربوط به سلامت ذهن دارای پرداخت درون‌برنامه‌ای می‌باشد.
-                </p>
-            </section>
-
-        </article>
-    </main>
-
-    <footer class="border-t-[0.5px] border-white/5 py-3 text-center mt-auto">
-        <p class="text-gray-600 text-xs tracking-widest">
-            XYVAK
-        </p>
-    </footer>
+<footer class="thin-footer">
+  <p>XYVAK</p>
+</footer>
 
 </body>
 </html>
