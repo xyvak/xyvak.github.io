@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://xyvak.github.io/frequencybox/sitemap.xml
