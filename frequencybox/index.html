@@ -106,52 +106,71 @@
   --accent-purple: #7000ff;
   --glass-bg: rgba(255, 255, 255, 0.02);
   --glass-border: rgba(255, 255, 255, 0.05);
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
-* {
+
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
-  font-family: 'Vazirmatn', sans-serif;
+  font-family: 'Vazirmatn', system-ui, sans-serif;
   background-color: var(--bg-color);
   color: var(--text-main);
   line-height: 1.8;
-  background-image: radial-gradient(circle at 10% 40%, rgba(0, 229, 255, 0.03) 0%, transparent 40%),
-                    radial-gradient(circle at 90% 60%, rgba(112, 0, 255, 0.03) 0%, transparent 40%);
+  background-image:
+    radial-gradient(ellipse at 10% 40%, rgba(0, 229, 255, 0.04) 0%, transparent 50%),
+    radial-gradient(ellipse at 90% 60%, rgba(112, 0, 255, 0.04) 0%, transparent 50%);
   background-attachment: fixed;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 100dvh;
 }
+
 a {
   text-decoration: none;
   color: inherit;
 }
+
 .container {
   max-width: 850px;
-  margin: 0 auto;
-  padding: 0 24px;
+  margin-inline: auto;
+  padding-inline: 24px;
   width: 100%;
 }
+
 .nav-bar {
   position: fixed;
+  inset-inline: 0;
   top: 0;
-  width: 100%;
   padding: 12px 24px;
-  background: rgba(7, 7, 10, 0.75);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(7, 7, 10, 0.8);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--glass-border);
   z-index: 100;
   display: flex;
   justify-content: center;
 }
+
 @media (min-width: 768px) {
   .nav-bar {
     justify-content: flex-start;
   }
 }
+
 .logo {
   font-size: 1.25rem;
   font-weight: 900;
@@ -162,147 +181,172 @@ a {
   -webkit-background-clip: text;
   background-clip: text;
   animation: shine 4s linear infinite;
-  transition: opacity 0.3s;
+  transition: opacity var(--transition);
 }
+
 .logo:hover {
   opacity: 0.8;
 }
+
 @keyframes shine {
-  to { background-position: 200% center; }
+  to {
+    background-position: 200% center;
+  }
 }
+
 .hero {
   padding-top: 140px;
   padding-bottom: 60px;
   text-align: center;
 }
+
 .h1-title {
   font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 900;
   margin-bottom: 24px;
   line-height: 1.2;
+  text-wrap: balance;
 }
+
 .text-gradient {
   background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-purple) 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   color: transparent;
 }
+
 .hero-desc {
   font-size: clamp(1.1rem, 2vw, 1.25rem);
   color: #d1d5db;
   max-width: 650px;
-  margin: 0 auto 40px auto;
+  margin: 0 auto 40px;
   font-weight: 500;
+  text-wrap: balance;
 }
+
 .btn-group {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   gap: 16px;
   justify-content: center;
   align-items: center;
 }
-@media (min-width: 600px) {
-  .btn-group {
-    flex-direction: row;
-  }
-}
+
 .btn {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 12px;
   padding: 16px 32px;
-  border-radius: 16px;
+  border-radius: var(--radius-md);
   font-weight: 700;
   font-size: 1rem;
-  transition: all 0.3s ease;
-  width: 100%;
-  justify-content: center;
+  transition: all var(--transition);
+  white-space: nowrap;
 }
-@media (min-width: 600px) {
+
+@media (max-width: 599px) {
   .btn {
-    width: auto;
+    width: 100%;
+    justify-content: center;
   }
 }
+
 .btn-primary {
-  background: linear-gradient(135deg, rgba(0, 229, 255, 0.1) 0%, rgba(112, 0, 255, 0.1) 100%);
+  background: linear-gradient(135deg, rgba(0, 229, 255, 0.1), rgba(112, 0, 255, 0.1));
   border: 1px solid rgba(0, 229, 255, 0.3);
-  color: #ffffff;
+  color: #fff;
 }
+
 .btn-primary:hover {
-  background: linear-gradient(135deg, rgba(0, 229, 255, 0.2) 0%, rgba(112, 0, 255, 0.2) 100%);
+  background: linear-gradient(135deg, rgba(0, 229, 255, 0.2), rgba(112, 0, 255, 0.2));
   border-color: rgba(0, 229, 255, 0.6);
   transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 229, 255, 0.1);
 }
+
 .btn-secondary {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #ffffff;
+  color: #fff;
 }
+
 .btn-secondary:hover {
   background: rgba(255, 255, 255, 0.1);
   border-color: rgba(255, 255, 255, 0.2);
   transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.04);
 }
+
 .btn svg {
   width: 24px;
   height: 24px;
+  flex-shrink: 0;
 }
+
 .glass-panel {
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
-  border-radius: 24px;
+  border-radius: var(--radius-lg);
   padding: 32px;
   margin-bottom: 80px;
 }
+
 @media (min-width: 768px) {
   .glass-panel {
     padding: 48px;
   }
 }
+
 article h2 {
-  color: #ffffff;
-  font-size: 1.5rem;
+  color: #fff;
+  font-size: clamp(1.35rem, 2.5vw, 1.75rem);
   font-weight: 800;
-  margin-top: 40px;
+  margin-top: 48px;
   margin-bottom: 16px;
   display: flex;
   align-items: center;
   gap: 12px;
+  text-wrap: balance;
 }
-@media (min-width: 768px) {
-  article h2 {
-    font-size: 1.75rem;
-  }
-}
+
 article h2::before {
   content: "";
-  display: block;
-  width: 6px;
+  flex-shrink: 0;
+  width: 5px;
   height: 24px;
   background: var(--accent-cyan);
   border-radius: 4px;
 }
+
 article h2:first-child {
   margin-top: 0;
 }
+
 article p {
   margin-bottom: 20px;
   color: var(--text-muted);
   text-align: justify;
 }
+
 article strong {
   color: #d1d5db;
+  font-weight: 700;
 }
+
 article ul {
   list-style-type: none;
   padding-right: 16px;
   margin-bottom: 24px;
 }
+
 article ul li {
   position: relative;
   padding-right: 24px;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
   color: #d1d5db;
+  line-height: 1.7;
 }
+
 article ul li::before {
   content: "•";
   position: absolute;
@@ -312,18 +356,30 @@ article ul li::before {
   line-height: 1;
   top: -2px;
 }
+
 .faq-section {
   margin-top: 48px;
   border-top: 1px solid var(--glass-border);
   padding-top: 32px;
 }
+
 details {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--glass-border);
-  border-radius: 12px;
+  border-radius: var(--radius-sm);
   margin-bottom: 16px;
   overflow: hidden;
+  transition: border-color var(--transition);
 }
+
+details:hover {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+details[open] {
+  border-color: rgba(0, 229, 255, 0.15);
+}
+
 summary {
   padding: 16px 20px;
   font-weight: 700;
@@ -333,36 +389,61 @@ summary {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 16px;
+  transition: color var(--transition);
 }
+
 summary::-webkit-details-marker {
   display: none;
 }
+
 summary::after {
   content: "+";
   color: var(--accent-cyan);
   font-size: 1.5rem;
   font-weight: 300;
-  transition: transform 0.3s;
+  transition: transform var(--transition);
+  flex-shrink: 0;
 }
+
 details[open] summary::after {
   transform: rotate(45deg);
 }
+
+details[open] summary {
+  color: #fff;
+}
+
 .faq-content {
   padding: 0 20px 20px 20px;
   color: var(--text-muted);
   font-size: 0.95rem;
-  line-height: 1.7;
+  line-height: 1.8;
 }
+
 .thin-footer {
   border-top: 1px solid rgba(255, 255, 255, 0.03);
   padding: 12px 0;
   text-align: center;
   margin-top: auto;
 }
+
 .thin-footer p {
   color: #4b5563;
   font-size: 0.75rem;
   letter-spacing: 0.1em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
 }
 </style>
 </head>
@@ -375,7 +456,7 @@ details[open] summary::after {
 <header class="hero container">
   <h1 class="h1-title">جعبه ابزار <span class="text-gradient">فرکانس</span></h1>
   <p class="hero-desc">
-    راهکار قطعی و علمی برای خروج آب از اسپیکر گوشی، تولید دقیق امواج صوتی و سنجش فرکانس. مجموعه‌ای از ۱۰ ابزار کاربردی در یک اپلیکیشن سبک و بهینه‌شده.
+    راهکار علمی و قطعی برای خروج آب از اسپیکر گوشی، تولید دقیق امواج صوتی و سنجش فرکانس. مجموعه‌ای از ۱۰ ابزار کاربردی در یک اپلیکیشن سبک و بهینه.
   </p>
   <div class="btn-group">
     <a href="https://cafebazaar.ir/app/appinventor.ai_112armanhannani.Insect_repellent" target="_blank" class="btn btn-primary">
@@ -391,52 +472,52 @@ details[open] summary::after {
 
 <main class="container">
   <article class="glass-panel">
-    
+
     <section>
-      <h2>نجات گوشی خیس شده؛ چگونه آب را از اسپیکر خارج کنیم؟</h2>
+      <h2>گوشیتان خیس شده؟ آب را از اسپیکر بیرون بکشید</h2>
       <p>
-        افتادن گوشی در آب، استخر یا حتی ریختن مایعات روی آن، یکی از رایج‌ترین حوادثی است که کاربران گوشی‌های هوشمند با آن مواجه می‌شوند. در این مواقع، اولین قطعه‌ای که دچار اختلال جدی می‌شود، بلندگو یا اسپیکر گوشی است. نفوذ قطرات آب به داخل منافذ توری اسپیکر باعث می‌شود صدای خروجی به شدت ضعیف، خفه و همراه با نویز شنیده شود.
+        لحظه‌ای غفلت کافی است؛ گوشی توی سینک ظرفشویی می‌افتد، لبه استخر از دستتان لیز می‌خورد یا یک لیوان چای رویش واژگون می‌شود. اتفاقی که تقریباً برای همه پیش آمده. در این لحظه، اولین قطعه‌ای که ضربه می‌خورد بلندگوی گوشی است. آب وارد منافذ ریز توری اسپیکر می‌شود و نتیجه‌اش صدایی خفه، ضعیف و پر از نویز خش‌خش است که هنگام مکالمه یا پخش موسیقی حسابی کلافه‌تان می‌کند.
       </p>
       <p>
-        بسیاری از افراد در این شرایط به روش‌های سنتی و مخربی مانند استفاده از سشوار داغ، فرو کردن سوزن در منافذ یا قرار دادن گوشی در کیسه برنج روی می‌آورند. حرارت سشوار می‌تواند چسب‌های ضدآب داخلی گوشی را ذوب کند و ذرات ریز برنج نیز به راحتی وارد موتور ویبره یا پورت شارژ می‌شوند. راهکار علمی و تایید شده برای این مشکل، استفاده از پدیده فیزیکی تشدید آکوستیک (Acoustic Resonance) است.
+        در این شرایط، خیلی‌ها به سراغ روش‌های قدیمی و پرخطر می‌روند: سشوار داغ، سوزن و سنجاق یا حتی فرو بردن گوشی در کیسه برنج. اما واقعیت این است که حرارت سشوار چسب‌های ضدآب داخلی گوشی را ذوب می‌کند و ذرات ریز برنج هم به‌راحتی وارد موتور ویبره و پورت شارژ می‌شوند و مشکلات تازه‌ای به‌وجود می‌آورند. اما یک راه علمی و کاملاً بی‌خطر وجود دارد: استفاده از پدیده فیزیکی تشدید آکوستیک (Acoustic Resonance) که همین اپلیکیشن از آن بهره می‌برد.
       </p>
     </section>
 
     <section>
       <h2>الگوریتم سه مرحله‌ای خروج آب در جعبه ابزار فرکانس</h2>
       <p>
-        این اپلیکیشن مجهز به یک سیستم پیشرفته و خودکار برای پاکسازی بلندگو است. این سیستم به جای پخش یک صدای ساده، از یک الگوریتم دقیق سه مرحله‌ای استفاده می‌کند تا قطرات آب و حتی ذرات ریز گرد و غبار را از دیافراگم اسپیکر جدا کرده و به بیرون پرتاب کند:
+        برخلاف اپلیکیشن‌هایی که فقط یک صدای بوق‌مانند تکراری پخش می‌کنند، جعبه ابزار فرکانس مجهز به یک سیستم هوشمند و خودکار است. این سیستم با یک الگوریتم سه مرحله‌ای دقیق، قطرات آب و حتی ذرات ریز گرد و غبار را از دیافراگم اسپیکر جدا کرده و به بیرون پرتاب می‌کند:
       </p>
       <ul>
-        <li><strong>مرحله اول (لرزش عمیق):</strong> پخش موج سینوسی در فرکانس دقیق ۱۶۵ هرتز. این فرکانس باعث ایجاد بیشترین دامنه حرکتی در دیافراگم اسپیکرهای موبایل می‌شود و قطرات چسبیده به توری را جدا می‌کند.</li>
-        <li><strong>مرحله دوم (جاروب فرکانسی یا Sweep):</strong> تغییر مداوم و سریع فرکانس از محدوده‌های بم به زیر. این تغییرات متناوب باعث هدایت مایعات به سمت خروجی منافذ می‌شود.</li>
-        <li><strong>مرحله سوم (شوک ضربه‌ای):</strong> ایجاد پالس‌های صوتی کوتاه و قدرتمند که به عنوان یک نیروی محرکه نهایی، ذرات آب را به طور کامل به بیرون پرتاب می‌کند.</li>
+        <li><strong>مرحله اول — لرزش عمیق:</strong> یک موج سینوسی در فرکانس دقیق ۱۶۵ هرتز پخش می‌شود. این فرکانس خاص، بیشترین دامنه حرکتی را در دیافراگم اسپیکرهای موبایل ایجاد می‌کند و قطرات چسبیده به توری بلندگو را از جا می‌کند.</li>
+        <li><strong>مرحله دوم — جاروب فرکانسی (Sweep):</strong> فرکانس به‌صورت مداوم و سریع از محدوده‌های بم به زیر جابه‌جا می‌شود. این رفت‌وبرگشت متناوب، مایعات سرگردان را به سمت خروجی منافذ اسپیکر هدایت می‌کند.</li>
+        <li><strong>مرحله سوم — شوک ضربه‌ای:</strong> پالس‌های صوتی کوتاه و قدرتمندی پخش می‌شوند که مثل یک ضربه نهایی، باقیمانده ذرات آب را به‌طور کامل به بیرون پرتاب می‌کنند.</li>
       </ul>
     </section>
 
     <section>
       <h2>ژنراتور فرکانس صوتی (Audio Frequency Generator)</h2>
       <p>
-        بخش مولد امواج در این اپلیکیشن، یک ابزار قدرتمند برای تکنسین‌های تعمیرات موبایل، مهندسان و کاربران روزمره است. این ابزار به شما اجازه می‌دهد تا امواج صوتی را با دقت یک هرتز (از ۱ هرتز تا ۲۲۰۰۰ هرتز) به صورت زنده (Real-time) تولید کنید.
+        بخش تولید امواج این اپلیکیشن، ابزاری حرفه‌ای است که هم تکنسین‌های تعمیرات موبایل به آن نیاز دارند و هم کاربران کنجکاوی که می‌خواهند دنیای صوت را کاوش کنند. با این ابزار می‌توانید امواج صوتی را از ۱ هرتز تا ۲۲٫۰۰۰ هرتز، با دقت تک‌هرتزی و به‌صورت زنده (Real-time) تولید کنید.
       </p>
       <p>
-        شما می‌توانید نوع شکل‌موج خروجی را بر اساس نیاز خود تغییر دهید. موج‌های پشتیبانی شده شامل موج سینوسی (برای تست خلوص صدای اسپیکر)، موج مربعی، موج دندانه‌اره‌ای و موج مثلثی می‌باشند. از این بخش می‌توان برای تست سلامت ساب‌ووفرها، پیدا کردن فرکانس تشدید اشیاء و کالیبراسیون تجهیزات صوتی استفاده کرد.
+        نکته جالب اینجاست که فقط محدود به یک نوع موج نیستید. می‌توانید بین موج سینوسی (ایده‌آل برای تست خلوص صدای اسپیکر)، موج مربعی، موج دندانه‌اره‌ای و موج مثلثی جابه‌جا شوید. این قابلیت برای کارهایی مثل تست سلامت ساب‌ووفرها، پیدا کردن فرکانس تشدید اشیا و کالیبراسیون تجهیزات صوتی فوق‌العاده کاربردی است.
       </p>
     </section>
 
     <section>
       <h2>تست شنوایی و امواج فراصوت (Ultrasonic)</h2>
       <p>
-        گوش انسان در حالت طبیعی قادر به شنیدن فرکانس‌هایی بین ۲۰ هرتز تا ۲۰ هزار هرتز است. با بالا رفتن سن، توانایی شنیدن فرکانس‌های بالا (زیر) کاهش می‌یابد. ابزار تست شنوایی موجود در این برنامه به شما کمک می‌کند تا آستانه شنوایی خود را بسنجید و سن فیزیولوژیک گوش خود را تخمین بزنید.
+        گوش انسان در شرایط عادی فرکانس‌هایی بین ۲۰ تا ۲۰٫۰۰۰ هرتز را می‌شنود، اما با بالا رفتن سن، توانایی شنیدن صداهای زیر (فرکانس بالا) ذره‌ذره کمتر می‌شود. ابزار تست شنوایی این برنامه به‌شکلی ساده و سرگرم‌کننده، آستانه شنوایی شما را می‌سنجد و تخمینی از سن فیزیولوژیکی گوشتان ارائه می‌دهد. امتحانش جالب است!
       </p>
       <p>
-        علاوه بر این، قابلیت تولید امواج فراصوت (بالای ۲۰ کیلوهرتز) در این اپلیکیشن تعبیه شده است. این امواج برای گوش انسان قابل شنیدن نیستند اما حیوانات واکنش دقیقی به آن‌ها نشان می‌دهند. از این فرکانس‌ها می‌توان به عنوان سوت سگ (Dog Whistle) برای آموزش حیوانات خانگی یا بررسی واکنش آفات به امواج اولتراسونیک استفاده نمود.
+        یک قابلیت دیگر هم وجود دارد: تولید امواج فراصوت (بالای ۲۰ کیلوهرتز). این امواج برای گوش ما خاموش هستند، ولی حیوانات نسبت به آن‌ها واکنش نشان می‌دهند. می‌توانید از این فرکانس‌ها به‌عنوان سوت سگ (Dog Whistle) برای آموزش حیوان خانگی‌تان یا برای بررسی واکنش آفات به امواج اولتراسونیک استفاده کنید.
       </p>
     </section>
 
     <section class="faq-section">
       <h2>سوالات متداول (FAQ)</h2>
-      
+
       <details>
         <summary>آیا این روش برای اسپیکر گوشی شیائومی و سامسونگ کاربرد دارد؟</summary>
         <div class="faq-content">
@@ -447,14 +528,14 @@ details[open] summary::after {
       <details>
         <summary>خش خش بلندگو بعد از افتادن در آب چگونه رفع می‌شود؟</summary>
         <div class="faq-content">
-          خش‌خش اسپیکر به دلیل گیر کردن لایه‌ای از آب روی دیافراگم است که مانع لرزش آزادانه آن می‌شود. با اجرای بخش پاکسازی اسپیکر و پخش فرکانس‌های زیر ۲۰۰ هرتز، این لایه آب شکسته شده و صدای گوشی به حالت شفاف اولیه بازمی‌گردد.
+          خش‌خش اسپیکر معمولاً به این دلیل است که لایه نازکی از آب روی دیافراگم گیر کرده و اجازه لرزش آزاد به آن نمی‌دهد. کافی است بخش پاکسازی اسپیکر را اجرا کنید؛ فرکانس‌های زیر ۲۰۰ هرتز این لایه آب را می‌شکنند و صدای گوشی به حالت شفاف اولیه بازمی‌گردد.
         </div>
       </details>
 
       <details>
         <summary>آیا استفاده از سشوار یا کیسه برنج برای خشک کردن گوشی ایمن است؟</summary>
         <div class="faq-content">
-          خیر. حرارت سشوار باعث ذوب شدن چسب‌های ضدآب داخلی گوشی می‌شود و کیسه برنج نیز گرد و غبار ریز را وارد موتور ویبره و پورت شارژ می‌کند. استفاده از امواج صوتی تنها روش فیزیکی و ایمن تایید شده برای خروج مایعات است.
+          خیر، هیچ‌کدام ایمن نیستند. گرمای سشوار چسب‌های ضدآب داخلی را ذوب می‌کند و کیسه برنج هم گرد و غبار ریز را وارد موتور ویبره و پورت شارژ می‌کند. استفاده از امواج صوتی تنها روش فیزیکی و بدون ریسک برای خارج کردن آب از بلندگو است.
         </div>
       </details>
     </section>
