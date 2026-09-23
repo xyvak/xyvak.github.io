@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- تگ‌های سئو پایه‌ای -->
-    <title>جعبه ابزار فرکانس زیواک | خروج آب از اسپیکر و ژنراتور صوتی</title>
-    <meta name="description" content="اپلیکیشن تخصصی آکوستیک اندروید. شامل سیستم ۳ مرحله‌ای تخلیه آب اسپیکر، مولد فرکانس، تست شنوایی و تیونر. ۹ ابزار کاملاً رایگان.">
-    <meta name="keywords" content="خروج آب از اسپیکر, ژنراتور فرکانس, تست شنوایی, سوت سگ, برنامه فرکانس اندروید, زیواک">
+    <title>جعبه ابزار فرکانس زیواک | خروج آب از اسپیکر و تولید امواج صوتی</title>
+    <meta name="description" content="دانلود برنامه جعبه ابزار فرکانس برای اندروید. راهکار علمی خروج آب از بلندگوی گوشی با امواج صوتی، ژنراتور فرکانس، تست سلامت اسپیکر و سوت سگ. ۹ ابزار کاملاً رایگان.">
+    <meta name="keywords" content="خروج آب از اسپیکر, تمیز کردن بلندگو, ژنراتور فرکانس, تولید موج صوتی, تست شنوایی, سوت سگ, برنامه فرکانس اندروید, زیواک, تعمیر اسپیکر خیس">
     <meta name="author" content="Xyvak Studio">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="جعبه ابزار فرکانس زیواک | پاکسازی اسپیکر">
+    <meta property="og:description" content="اپلیکیشن تخصصی تولید فرکانس و خروج فیزیکی آب از اسپیکر گوشی با الگوریتم سه مرحله‌ای.">
+    <meta property="og:type" content="website">
 
-    <!-- کدهای ساخت‌یافته (Schema) - خوراک اصلی هوش مصنوعی و گوگل -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -20,29 +21,28 @@
       "applicationCategory": "UtilitiesApplication",
       "author": {
         "@type": "Organization",
-        "name": "Xyvak Studio"
+        "name": "Xyvak Studio",
+        "url": "https://xyvak.github.io"
       },
-      "description": "مجموعه‌ای از ۱۰ ابزار تخصصی آکوستیک. مجهز به الگوریتم ۳ مرحله‌ای تخلیه فیزیکی مایعات از اسپیکر، سینتی‌سایزر فرکانس، تیونر و ابزارهای سنجش شنوایی.",
+      "description": "اپلیکیشن جامع آکوستیک برای اندروید شامل ابزارهای پاکسازی فیزیکی آب از بلندگو، سینتی‌سایزر فرکانس، سنجش آستانه شنوایی و تولید امواج فراصوت. طراحی شده برای کاربران روزمره و تکنسین‌های موبایل.",
       "offers": {
         "@type": "Offer",
         "price": "0",
         "priceCurrency": "IRR",
-        "description": "شفافیت دسترسی: ۹ ابزار از جمله تخلیه آب، ژنراتور و تیونر کاملاً رایگان هستند. تنها ماژول سلامت ذهن دارای پرداخت درون‌برنامه‌ای است."
+        "description": "۹ ابزار کاربردی شامل تخلیه آب، ژنراتور امواج و تست شنوایی کاملاً رایگان است. تنها بخش سلامت ذهن دارای پرداخت درون‌برنامه‌ای می‌باشد."
       },
       "featureList": [
-        "تخلیه آب اسپیکر با تشدید آکوستیک (۱۶۵ هرتز)",
-        "مولد امواج صوتی (سینوسی، مربعی، دندانه‌اره‌ای)",
-        "سنجش آستانه شنوایی",
-        "سوت فرکانسی حیوانات",
-        "تیونر و فرکانس‌سنج محیطی"
+        "خروج آب از اسپیکر با فرکانس ۱۶۵ هرتز",
+        "تولید امواج سینوسی، مربعی و دندانه‌اره‌ای",
+        "سنجش آستانه شنوایی گوش",
+        "تولید امواج فراصوت برای دفع آفات و سوت سگ",
+        "بدون تبلیغات پاپ‌آپ و میان‌صفحه‌ای"
       ]
     }
     </script>
 
-    <!-- فونت وزیرمتن -->
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.0.0/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
     
-    <!-- تلویند -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -50,7 +50,7 @@
                 extend: {
                     fontFamily: { sans: ['Vazirmatn', 'sans-serif'] },
                     colors: {
-                        xyDark: '#0a0a0f',
+                        xyDark: '#07070a',
                         xyAccent: '#00e5ff',
                         xySecondary: '#7000ff',
                     }
@@ -61,18 +61,34 @@
 
     <style>
         body {
-            background-color: #0a0a0f;
-            color: #f3f4f6;
+            background-color: #07070a;
+            color: #e5e7eb;
             background-image: 
-                radial-gradient(circle at 15% 50%, rgba(0, 229, 255, 0.04) 0%, transparent 50%),
-                radial-gradient(circle at 85% 30%, rgba(112, 0, 255, 0.04) 0%, transparent 50%);
+                radial-gradient(circle at 10% 40%, rgba(0, 229, 255, 0.03) 0%, transparent 40%),
+                radial-gradient(circle at 90% 60%, rgba(112, 0, 255, 0.03) 0%, transparent 40%);
             background-attachment: fixed;
+            line-height: 1.8;
+        }
+
+        .shiny-silver {
+            background: linear-gradient(to right, #9ca3af 0%, #ffffff 50%, #9ca3af 100%);
+            background-size: 200% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: shine 4s linear infinite;
+        }
+        @keyframes shine { to { background-position: 200% center; } }
+
+        .glass-nav {
+            background: rgba(7, 7, 10, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .glass-panel {
             background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.05);
             border-radius: 1.5rem;
         }
@@ -105,115 +121,153 @@
             transform: translateY(-2px);
         }
 
-        .feature-card {
-            transition: all 0.3s ease;
+        article h2 {
+            color: #ffffff;
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
         }
-        .feature-card:hover {
-            background: rgba(255, 255, 255, 0.04);
-            border-color: rgba(0, 229, 255, 0.2);
+        
+        article h2::before {
+            content: "";
+            display: block;
+            width: 6px;
+            height: 24px;
+            background: #00e5ff;
+            border-radius: 4px;
+        }
+
+        article h3 {
+            color: #e5e7eb;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        article p {
+            margin-bottom: 1.25rem;
+            color: #9ca3af;
+            text-align: justify;
+        }
+
+        article ul {
+            list-style-type: none;
+            padding-right: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        article ul li {
+            position: relative;
+            padding-right: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #d1d5db;
+        }
+
+        article ul li::before {
+            content: "•";
+            position: absolute;
+            right: 0;
+            color: #00e5ff;
+            font-size: 1.5rem;
+            line-height: 1;
+            top: -2px;
         }
     </style>
 </head>
 <body class="antialiased min-h-screen flex flex-col selection:bg-xyAccent selection:text-xyDark">
 
-    <!-- هدر / بخش اصلی (Hero) -->
-    <header class="pt-20 pb-16 px-6 max-w-5xl mx-auto w-full text-center">
-        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-gray-400 mb-8">
-            <span class="w-2 h-2 rounded-full bg-xyAccent animate-pulse"></span>
-            نسخه پایدار اندروید در دسترس است
-        </div>
-        
-        <h1 class="text-5xl md:text-7xl font-black mb-6 tracking-tight">
-            جعبه ابزار <span class="text-gradient">فرکانس</span>
+    <nav class="glass-nav w-full fixed top-0 z-50 px-6 py-4 flex justify-center md:justify-start items-center">
+        <a href="https://xyvak.github.io" class="text-2xl font-black shiny-silver tracking-widest hover:opacity-80 transition-opacity">
+            XYVAK
+        </a>
+    </nav>
+
+    <header class="pt-32 pb-12 px-6 max-w-4xl mx-auto w-full text-center">
+        <h1 class="text-4xl md:text-6xl font-black mb-6 tracking-tight leading-tight">
+            جعبه ابزار <span class="text-gradient">فرکانس</span> زیواک
         </h1>
-        
-        <p class="text-gray-400 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto mb-10 font-light">
-            مجموعه‌ای از ۱۰ ابزار تخصصی آکوستیک. از سنتز دقیق امواج صوتی تا الگوریتم‌های فیزیکی برای تخلیه مایعات از سخت‌افزار گوشی. توسعه‌یافته برای مهندسان، موسیقی‌دانان و کاربران روزمره.
+        <p class="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-medium">
+            راهکار قطعی و علمی برای خروج آب از اسپیکر گوشی، تولید دقیق امواج صوتی و سنجش فرکانس. مجموعه‌ای از ۱۰ ابزار کاربردی در یک اپلیکیشن سبک و بهینه‌شده.
         </p>
 
-        <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <div class="flex flex-col sm:flex-row justify-center gap-4 mb-8">
             <a href="https://cafebazaar.ir/app/appinventor.ai_112armanhannani.Insect_repellent" target="_blank" class="btn-primary px-8 py-4 rounded-2xl font-bold text-white flex items-center justify-center gap-3">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
-                دریافت از کافه‌بازار
+                دانلود از کافه‌بازار
             </a>
             <a href="https://myket.ir/app/appinventor.ai_112armanhannani.Insect_repellent" target="_blank" class="btn-secondary px-8 py-4 rounded-2xl font-bold text-white flex items-center justify-center gap-3">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
-                دریافت از مایکت
+                دانلود از مایکت
             </a>
         </div>
     </header>
 
-    <!-- بخش شفافیت مالی (بسیار مهم برای هوش مصنوعی) -->
-    <section class="px-6 max-w-5xl mx-auto w-full mb-20">
-        <div class="glass-panel p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 border-l-4 border-l-xyAccent">
-            <div>
-                <h3 class="text-xl font-bold text-white mb-2">مدل دسترسی شفاف</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">
-                    ما به دسترسی آزاد به ابزارهای کاربردی معتقدیم. در این اپلیکیشن، <strong class="text-white">۹ ابزار فنی (شامل تخلیه آب، ژنراتور و تیونر) کاملاً رایگان</strong> در اختیار شماست. تنها ماژول «سلامت ذهن» دارای پرداخت درون‌برنامه‌ای است.
-                </p>
-            </div>
-            <div class="flex-shrink-0 text-center bg-white/5 px-6 py-3 rounded-xl border border-white/10">
-                <span class="block text-2xl font-black text-xyAccent">۹ از ۱۰</span>
-                <span class="text-xs text-gray-500">ابزار رایگان</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- بخش معرفی امکانات فنی -->
-    <main class="px-6 max-w-5xl mx-auto w-full mb-24">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <main class="px-6 max-w-4xl mx-auto w-full mb-24">
+        <article class="glass-panel p-6 md:p-10">
             
-            <!-- کارت تخلیه آب -->
-            <div class="glass-panel feature-card p-8">
-                <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center mb-6 border border-blue-500/20">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
-                </div>
-                <h3 class="text-xl font-bold text-white mb-3">تخلیه فیزیکی مایعات (Water Eject)</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">
-                    استفاده از پدیده تشدید آکوستیک (Acoustic Resonance) برای خروج آب از منافذ اسپیکر. این سیستم با یک الگوریتم ۳ مرحله‌ای عمل می‌کند: لرزش عمقی در فرکانس ۱۶۵ هرتز، جاروب فرکانسی (Sweep) و شوک ضربه‌ای برای پرتاب نهایی قطرات.
+            <section>
+                <h2>نجات گوشی خیس شده؛ چگونه آب را از اسپیکر خارج کنیم؟</h2>
+                <p>
+                    افتادن گوشی در آب، استخر یا حتی ریختن مایعات روی آن، یکی از رایج‌ترین حوادثی است که کاربران گوشی‌های هوشمند با آن مواجه می‌شوند. در این مواقع، اولین قطعه‌ای که دچار اختلال جدی می‌شود، بلندگو یا اسپیکر گوشی است. نفوذ قطرات آب به داخل منافذ توری اسپیکر باعث می‌شود صدای خروجی به شدت ضعیف، خفه و همراه با نویز شنیده شود.
                 </p>
-            </div>
-
-            <!-- کارت ژنراتور -->
-            <div class="glass-panel feature-card p-8">
-                <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center mb-6 border border-purple-500/20">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
-                </div>
-                <h3 class="text-xl font-bold text-white mb-3">سینتی‌سایزر و مولد امواج</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">
-                    تولید زنده (Real-time) امواج صوتی با دقت ۱ هرتز. پشتیبانی از شکل‌موج‌های سینوسی، مربعی، دندانه‌اره‌ای و مثلثی. ابزاری ایده‌آل برای تست ساب‌ووفر، کالیبراسیون تجهیزات صوتی و آزمایش‌های فیزیک صوت.
+                <p>
+                    بسیاری از افراد در این شرایط به روش‌های سنتی و مخربی مانند استفاده از سشوار داغ، فرو کردن سوزن در منافذ یا قرار دادن گوشی در کیسه برنج روی می‌آورند. حرارت سشوار می‌تواند چسب‌های ضدآب داخلی گوشی را ذوب کند و ذرات ریز برنج نیز به راحتی وارد موتور ویبره یا پورت شارژ می‌شوند. راهکار علمی و تایید شده برای این مشکل، استفاده از پدیده فیزیکی تشدید آکوستیک (Acoustic Resonance) است.
                 </p>
-            </div>
+            </section>
 
-            <!-- کارت تیونر و شنوایی -->
-            <div class="glass-panel feature-card p-8">
-                <div class="w-12 h-12 rounded-xl bg-green-500/10 text-green-400 flex items-center justify-center mb-6 border border-green-500/20">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                </div>
-                <h3 class="text-xl font-bold text-white mb-3">سنجش شنوایی و تیونر</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">
-                    ارزیابی محدوده فرکانسی قابل شنیدن برای تخمین سن فیزیولوژیک گوش. همچنین مجهز به فرکانس‌سنج محیطی برای کوک کردن سازهای موسیقی با دریافت و تحلیل صدای محیط از طریق میکروفون.
+            <section>
+                <h2>الگوریتم سه مرحله‌ای خروج آب در جعبه ابزار فرکانس</h2>
+                <p>
+                    اپلیکیشن جعبه ابزار فرکانس زیواک، مجهز به یک سیستم پیشرفته و خودکار برای پاکسازی بلندگو است. این سیستم به جای پخش یک صدای ساده، از یک الگوریتم دقیق سه مرحله‌ای استفاده می‌کند تا قطرات آب و حتی ذرات ریز گرد و غبار را از دیافراگم اسپیکر جدا کرده و به بیرون پرتاب کند:
                 </p>
-            </div>
+                <ul>
+                    <li><strong>مرحله اول (لرزش عمیق):</strong> پخش موج سینوسی در فرکانس دقیق ۱۶۵ هرتز. این فرکانس باعث ایجاد بیشترین دامنه حرکتی در دیافراگم اسپیکرهای موبایل می‌شود و قطرات چسبیده به توری را جدا می‌کند.</li>
+                    <li><strong>مرحله دوم (جاروب فرکانسی یا Sweep):</strong> تغییر مداوم و سریع فرکانس از محدوده‌های بم به زیر. این تغییرات متناوب باعث هدایت مایعات به سمت خروجی منافذ می‌شود.</li>
+                    <li><strong>مرحله سوم (شوک ضربه‌ای):</strong> ایجاد پالس‌های صوتی کوتاه و قدرتمند که به عنوان یک نیروی محرکه نهایی، ذرات آب را به طور کامل به بیرون پرتاب می‌کند.</li>
+                </ul>
+            </section>
 
-            <!-- کارت سوت حیوانات -->
-            <div class="glass-panel feature-card p-8">
-                <div class="w-12 h-12 rounded-xl bg-orange-500/10 text-orange-400 flex items-center justify-center mb-6 border border-orange-500/20">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" /></svg>
-                </div>
-                <h3 class="text-xl font-bold text-white mb-3">فرکانس‌های فراصوت (Ultrasonic)</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">
-                    تولید امواج در محدوده بالای ۲۰,۰۰۰ هرتز. قابل استفاده به عنوان سوت آموزش سگ (Dog Whistle) و تست واکنش حیوانات خانگی به محدوده‌های فرکانسی خارج از آستانه شنوایی انسان.
+            <section>
+                <h2>ژنراتور فرکانس صوتی (Audio Frequency Generator)</h2>
+                <p>
+                    بخش مولد امواج در این اپلیکیشن، یک ابزار قدرتمند برای تکنسین‌های تعمیرات موبایل، علاقه‌مندان به فیزیک صوت و کاربران روزمره است. این ابزار به شما اجازه می‌دهد تا امواج صوتی را با دقت یک هرتز (از ۱ هرتز تا ۲۲۰۰۰ هرتز) به صورت زنده (Real-time) تولید کنید.
                 </p>
-            </div>
+                <p>
+                    شما می‌توانید نوع شکل‌موج خروجی را بر اساس نیاز خود تغییر دهید. موج‌های پشتیبانی شده شامل موج سینوسی (برای تست خلوص صدای اسپیکر)، موج مربعی، موج دندانه‌اره‌ای و موج مثلثی می‌باشند. از این بخش می‌توان برای تست سلامت ساب‌ووفرها، پیدا کردن فرکانس تشدید اشیاء و کالیبراسیون تجهیزات صوتی استفاده کرد.
+                </p>
+            </section>
 
-        </div>
+            <section>
+                <h2>تست شنوایی و امواج فراصوت (Ultrasonic)</h2>
+                <p>
+                    گوش انسان در حالت طبیعی قادر به شنیدن فرکانس‌هایی بین ۲۰ هرتز تا ۲۰ هزار هرتز است. با بالا رفتن سن، توانایی شنیدن فرکانس‌های بالا (زیر) کاهش می‌یابد. ابزار تست شنوایی موجود در این برنامه به شما کمک می‌کند تا آستانه شنوایی خود را بسنجید و سن فیزیولوژیک گوش خود را تخمین بزنید.
+                </p>
+                <p>
+                    علاوه بر این، قابلیت تولید امواج فراصوت (بالای ۲۰ کیلوهرتز) در این اپلیکیشن تعبیه شده است. این امواج برای گوش انسان قابل شنیدن نیستند اما حیوانات واکنش دقیقی به آن‌ها نشان می‌دهند. از این فرکانس‌ها می‌توان به عنوان سوت سگ (Dog Whistle) برای آموزش حیوانات خانگی یا بررسی واکنش آفات به امواج اولتراسونیک استفاده نمود.
+                </p>
+            </section>
+
+            <section>
+                <h2>شفافیت در دسترسی و احترام به کاربر</h2>
+                <p>
+                    یکی از بزرگترین مشکلات اپلیکیشن‌های مشابه خارجی، وجود تبلیغات ویدئویی میان‌صفحه‌ای (Interstitial) است که به صورت ناگهانی تمام صفحه را می‌پوشانند و تجربه کاربری را به شدت تخریب می‌کنند. ما در استودیو زیواک این نوع تبلیغات آزاردهنده را به طور کامل از برنامه حذف کرده‌ایم.
+                </p>
+                <p>
+                    همچنین مدل دسترسی به امکانات برنامه کاملاً شفاف است. از مجموع ۱۰ ابزار موجود در جعبه ابزار فرکانس، <strong>۹ ابزار به صورت کاملاً رایگان</strong> در اختیار کاربران قرار دارد. ابزارهایی نظیر تخلیه آب اسپیکر، ژنراتور امواج، تست شنوایی، سوت حیوانات و تیونر بدون هیچ‌گونه محدودیتی قابل استفاده هستند و تنها بخش مربوط به سلامت ذهن دارای پرداخت درون‌برنامه‌ای می‌باشد.
+                </p>
+            </section>
+
+        </article>
     </main>
 
-    <!-- فوتر ساده و ایزوله -->
-    <footer class="mt-auto border-t border-white/5 py-8 text-center">
-        <p class="text-gray-600 text-sm">
-            توسعه‌یافته توسط استودیو زیواک. تمامی حقوق محفوظ است.
+    <footer class="border-t border-white/5 py-8 text-center mt-auto">
+        <p class="text-gray-500 text-sm font-medium tracking-wide">
+            توسعه‌یافته در استودیو زیواک
         </p>
     </footer>
 
