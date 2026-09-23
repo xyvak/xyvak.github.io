@@ -5,7 +5,7 @@
 The application is highly optimized and focuses on real-time audio synthesis and acoustic physics.
 
 ## 🌟 Core Features
-
+ 
 ### 1. Water Eject & Speaker Cleaner (تخلیه آب اسپیکر)
 A scientifically proven method to remove trapped water and dust from smartphone speakers using Acoustic Resonance. The app utilizes a 3-step automated algorithm:
 * **Deep Vibration:** Sustained 165Hz sine wave to maximize diaphragm displacement.
